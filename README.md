@@ -1,104 +1,85 @@
-# OyeKake MVP Architecture, Quotation & Scaling Roadmap
+# OyeKake Lean MVP Architecture & Quotation
 
-Official software engineering proposal and Minimum Viable Product (MVP) quotation for the **OyeKake Multi-Vendor Food Delivery Platform**.
+Official software engineering proposal and Lean Minimum Viable Product (MVP) quotation for the **OyeKake Food Delivery Platform**.
 
 - 🌐 **Live Interactive Quotation Website:** [https://vinaytheprogrammer.github.io/oyekake-mvp-quotation/](https://vinaytheprogrammer.github.io/oyekake-mvp-quotation/)
-- 💰 **Total Fixed Development Cost:** ₹2,50,000 INR (Flat One-Time Investment)
+- 💰 **Total Fixed Development Cost:** ₹1,20,000 INR (Flat One-Time Investment)
 - 🚫 **Monthly Agency Retainer:** ₹0 (All monthly third-party charges eliminated or direct client billing)
-- 📍 **Launch Geographic Focus:** Single City (Architected for instant multi-city expansion)
-- 📱 **Mobile Deliverables:** Native-performance **Android App** (`.aab`/`.apk`) & **iOS App** (`.ipa`/TestFlight)
-- 💻 **Web Portals:** Customer Ordering Website & Dedicated **Service, Support & Maintenance Administration Website**
-- 🔑 **Access Control:** Multi-tier Role-Based Access Control (**Super Admin** vs **City Admin / Operations**)
-- ⏱️ **Timeline:** 40–45 Working Days
-- 🛡️ **Post-Delivery Warranty:** **2 Months (60 Days)** of hands-on technical assistance for requirement-related fixes
-- 🔒 **Single Source of Truth (SSOT):** Initially signed scope document serves as the sole contractual benchmark
-- 🛠️ **Long-Term SLA:** 1-Year Security Patches & Dependency Version Management
+- 📍 **Launch Geographic Focus:** Single City (Laser-focused initial operational launch)
+- 📱 **Mobile Deliverable:** Single Unified **3-in-1 Android App** (Customer, Vendor & Delivery Partner roles inside one app)
+- 💻 **Web Administration:** MERN Web Admin Dashboard (**Super Admin** vs **Admin** operations console)
+- ⏱️ **Timeline:** 30–35 Working Days (4–5 Weeks)
+- 🛡️ **Post-Delivery Warranty:** **30 Days** of complimentary bug-fixing assistance
+- 🔒 **Single Source of Truth (SSOT):** Scope locked to prevent delays and protect project budget
 
 ---
 
-> ⚠️ **Important Scope Clarification: Minimum Viable Product (MVP) Notice**  
-> This project represents a custom-built **Minimum Viable Product (MVP)**. While the platform incorporates standard, production-ready workflows inspired by platforms such as Swiggy and Domino's (vendor discovery, menu cart checkout, order state alerts, and live GPS map tracking), **it is NOT an exact 1:1 duplication or enterprise clone of Swiggy or Domino's**. Proprietary multi-million-dollar dispatch algorithms, deep gamification, and hyper-custom enterprise features are intentionally excluded to strictly maintain the ₹2,50,000 budget and rapid delivery timeline.
+> ⚠️ **Scope Optimization Notice (Tailored for ₹1.10L – ₹1.20L Budget)**  
+> To deliver a stable, high-performance platform within the client's ₹1.10L – ₹1.20L budget, complex enterprise overheads (such as continuous WebSocket live bicycle map animations, multi-app ecosystems, and iOS builds) have been strategically replaced with streamlined alternatives: **4-Stage Milestone Order Tracking**, **1-Tap External Google Maps Navigation for Riders**, and a **Single Unified 3-in-1 Android Application**.
 
 ---
 
-## Technical Deliverables: Android, iOS & Web Architecture
+## 3-in-1 Android App & MERN Architecture
 
-1. **Android Customer & Delivery Applications:**
-   - Flutter Dart native compile with hardware-accelerated rendering.
-   - Built to target latest Google Play API levels.
-   - Deliverables: Release `.aab` (Android App Bundle) signed for Google Play Store + standalone `.apk` for internal testing.
-2. **iOS Customer Application:**
-   - Production-ready iOS build package and Xcode archive.
-   - Tested for iOS guidelines, ready for TestFlight beta testing and App Store distribution.
-3. **Customer Responsive Ordering Website:**
-   - Fast React / Next.js web application functioning across desktop, tablet, and mobile browsers without requiring app downloads.
-4. **Service, Support & Maintenance Administration Website (RBAC):**
-   - **Super Admin Role:**
-     - Master control over all system settings, global database maintenance, and commission take-rate configurations.
-     - Multi-city and regional franchise management.
-     - Payment gateway credentials, webhook secrets, and financial payout reconciliation.
-     - System-wide security audit logs and administrative delegation.
-   - **City Admin (Operations Hub) Role:**
-     - Local city-level order queue monitoring (unassigned, delayed, or stuck orders).
-     - Manual dispatch and emergency rider re-assignment.
-     - Local restaurant KYC document verification, menu moderation, and temporary store deactivation.
-     - Delivery partner document checks (driving license, vehicle registration).
-     - Customer grievance tickets and operational escalation.
+1. **Customer Mobile Experience (In-App):**
+   - Mobile OTP login & user profile with saved addresses.
+   - Restaurant catalog filtered by local city area.
+   - Menu browsing (Categories, Veg/Non-Veg indicators, variants, add-ons).
+   - Cart & checkout with Razorpay Online Payments (UPI, Cards, Netbanking) & Cash on Delivery (COD).
+   - **4-Stage Order Status Tracker:** `Order Placed` ➔ `Preparing in Kitchen` ➔ `Out for Delivery` ➔ `Delivered`.
+   - 1-Tap "Call Delivery Boy" and 1-Tap "WhatsApp Support" buttons.
+
+2. **Vendor / Restaurant Portal (In-App):**
+   - Audio chime sound alerts on new incoming orders.
+   - 1-Tap "Accept Order" (with food preparation timer) or "Reject Order".
+   - 1-Tap "Food Prepared & Ready for Pickup".
+   - Menu stock availability manager (toggle items in/out of stock).
+   - Daily orders and revenue summary.
+
+3. **Delivery Partner View (In-App):**
+   - Active online/offline shift switch.
+   - Incoming delivery assignment alerts with restaurant pickup & customer delivery address.
+   - **1-Tap Google Maps Navigation:** Launches the native Google Maps app on the rider's phone with pre-filled destination coordinates.
+   - 4-Digit OTP customer delivery confirmation.
+
+4. **Super Admin & Admin Website (React.js MERN Web Portal):**
+   - Super Admin & Admin login with Role-Based Access Control (RBAC).
+   - Restaurant onboarding, KYC review, and menu item approval.
+   - Delivery partner onboarding and manual order assignment override.
+   - Live order queue monitoring.
+   - Commission settings (% take-rate or flat delivery fee).
+   - Sales summaries & exportable vendor payout sheets.
 
 ---
 
-## Deployment Charges & Infrastructure Accounts
+## Technical Deployment & Third-Party Expenses
 
-All professional engineering deployment services are **100% INCLUDED in the ₹2,50,000 fixed price**. External store accounts and domain registrations are client-owned directly with zero developer markups:
+All professional engineering deployment services are **100% INCLUDED in the ₹1,20,000 fixed price**. Third-party infrastructure accounts are owned directly by the client with zero markups:
 
 | Component | Responsibility / Description | Cost to Client |
 |---|---|---|
-| **Technical Deployment Service** | Server provisioning, Docker containerization, PostgreSQL/PostGIS database setup, Nginx reverse proxy, PM2 cluster, and automated SSL | **₹0 (Included in ₹2.5L Fee)** |
-| **Store Submission Assistance** | Android keystore signing, Play Store upload, iOS certificates & provisioning profiles setup | **₹0 (Included in ₹2.5L Fee)** |
-| **Custom `.com` Domain Name** | Dedicated branded domain (e.g. `oyekake.com`) registered under client's corporate name on GoDaddy / Cloudflare Registrar | **~₹800 – ₹1,200 / year** (Direct to registrar) |
-| **Google Play Console Account** | Official Google Play Developer Account for Android publishing | **US$25 one-time lifetime fee** (~₹2,100 direct to Google) |
-| **Apple Developer Program** | Official Apple Developer Account for iOS App Store publishing (optional if launching Android-first) | **US$99 / year** (~₹8,300/yr direct to Apple) |
-| **Cloudflare DNS & SSL** | Enterprise-grade global CDN, DDoS mitigation, and auto-renewing SSL certificates | **₹0 (Free Forever)** |
-| **Cloud VPS Server** | DigitalOcean / Hetzner / Hostinger high-performance VPS for single-city launch | **~₹400 – ₹800 / month** (Direct to host) |
+| **Technical Deployment Service** | Server provisioning, Node.js PM2 runtime, MongoDB database setup, Nginx reverse proxy, and SSL configuration | **₹0 (Included in ₹1.2L Fee)** |
+| **Custom `.com` Domain Name** | Dedicated branded domain (e.g. `oyekake.com`) registered under client's corporate name on GoDaddy / Cloudflare | **~₹800 – ₹1,000 / year** (Direct to registrar) |
+| **Google Play Console Account** | Official Google Developer Account for Android publishing | **US$25 one-time lifetime fee** (~₹2,100 direct to Google) |
+| **Cloud VPS Server** | DigitalOcean / Hetzner / Hostinger high-performance VPS for single-city launch | **~₹400 – ₹600 / month** (Direct to host) |
+| **Cloudflare CDN, DNS & SSL** | Enterprise-grade global edge caching, DDoS mitigation, and auto-renewing SSL | **₹0 (Free Forever)** |
 
 ---
 
-## Swiggy / Domino's-Grade Live Tracking Engine
+## Smart Scope Pruning: Why ₹1,20,000 Is Feasible
 
-- **5-Stage Order Tracker:** Order Placed ➔ Food Preparing ➔ Rider Assigned ➔ Out for Delivery (Live Moving Vehicle on Map) ➔ Delivered (via OTP).
-- **Cost-Optimized Coordinate Streaming:** Raw coordinates streamed over lightweight WebSockets with client-side bearing interpolation. Smooth, realistic vehicle movement without triggering excessive Google Maps API queries (operating within Google Maps $200 free monthly credit).
-
----
-
-## Geographic Focus & Scaling Roadmap
-
-| Expansion Tier | Footprint | Technical Mechanism | Cloud Infra Cost |
-|---|---|---|---|
-| **Phase 1: Launch (MVP)** | **1 Focus City** | Single High-Performance VPS + PostgreSQL PostGIS + WebSockets | **~₹500 – ₹1,000 / mo** |
-| **Phase 2: Regional** | 3–5 Nearby Cities | Redis Cache for Rider Location Pub/Sub + DB Read Replicas | **~₹3,500 – ₹6,000 / mo** |
-| **Phase 3: National** | 20+ Cities / Pan-India | Docker/K8s Cluster + Kafka/RabbitMQ Event Queue + Auto Dispatch | **~₹15,000 – ₹35,000 / mo** |
+| Feature Category | High-Budget Approach (Excluded) | Our Lean Smart MVP Solution (Included in ₹1.2L) |
+|---|---|---|
+| **Delivery Tracking** | Real-time moving bicycle icon streaming GPS over continuous WebSockets | 4-Stage visual milestone tracker (Placed ➔ Cooking ➔ Out for Delivery ➔ Delivered) + 1-Tap "Call Rider" |
+| **Rider Navigation** | In-app turn-by-turn map SDK embedded inside the app (costs thousands in API fees) | 1-Tap "Navigate" button that launches native Google Maps app with exact coordinates |
+| **Mobile Platforms** | Separate native Android app + separate iOS app ($99/yr Apple account + Mac dev) | Single high-performance Android application built with React Native / Expo covering all 3 user roles |
+| **Customer Support** | Custom in-app live chat ticketing system with AI bots | Floating 1-tap WhatsApp support launcher linking directly to your customer service number |
+| **Geographic Scope** | Multi-city, multi-state routing with localized tax engines | Laser-focused on 1 initial launch city to ensure operational profitability |
 
 ---
 
-## Automated Billing, Taxation & Refund Management System
+## Milestone Schedule (3 Milestones = ₹1,20,000 Total)
 
-1. **Smart Cart & Tax Engine:** Automated server-side calculation of item base prices + size variants + add-ons, transparent restaurant GST/tax breakdown, distance-based dynamic delivery fee matrix, platform convenience fees, and coupon code deductions with digital receipt generation.
-2. **Cancellation & Payment Gateway Refund Engine:** Configurable cancellation policy (free before restaurant acceptance), 1-click admin refund initiation, direct integration with Razorpay/Cashfree Refund APIs for automatic return of funds to customer UPI/Card/Netbanking accounts, and live customer refund status tracking (*Initiated ➔ Processing ➔ Credited*).
-3. **Vendor Commission & Settlement Ledger:** Automated deduction of platform take-rate % per order, complete ledger bookkeeping (`Net Payout = Gross Sales - Platform Commission - Refunds`), and exportable settlement sheets (CSV/PDF) for executing bank transfers.
-
----
-
-## Post-Delivery Warranty, Maintenance & SSOT Terms
-
-1. **2 Months Included Assistance:** 60 days of bug fixing, configuration tuning, and minor requirement-related adjustments included in the base ₹2,50,000 fee.
-2. **Single Source of Truth (SSOT):** The signed specification acts as the legal source of truth. Any major additions outside this document will be treated as Phase 2 change requests to protect launch timelines.
-3. **1-Year Maintenance & Dependency SLA:** Ongoing protection against software rot—Node.js dependencies, npm security vulnerabilities, Flutter SDK updates, and Google Play target API compliance maintained under an annual maintenance contract (starting after Month 2).
-
----
-
-## Milestone Schedule (₹2,50,000 Total)
-
-- **Milestone 1 (25% - ₹62,500):** UI/UX Design for all roles, PostgreSQL PostGIS DB Schema & Git Setup (8–10 Days)
-- **Milestone 2 (25% - ₹62,500):** Backend REST APIs, Super Admin, City Admin & Vendor Portal (12–14 Days)
-- **Milestone 3 (25% - ₹62,500):** Customer Android & iOS Apps, Delivery Boy App, Swiggy Live GPS Tracking & Payments (12–14 Days)
-- **Milestone 4 (25% - ₹62,500):** QA Testing, VPS Production Deployment, Domain & Store Setup, Source Code Handover & **Commencement of 2 Months Free Support** (6–8 Days)
+- **Milestone 1 (30% - ₹36,000):** MongoDB schemas, Express REST APIs, JWT authentication, and React Web Admin Dashboard skeleton (8–10 Working Days).
+- **Milestone 2 (40% - ₹48,000):** Unified 3-in-1 Android App development (Customer ordering flow + Vendor order accept/reject + Delivery partner screens) on preview APK (14–16 Working Days).
+- **Milestone 3 (30% - ₹36,000):** Razorpay payment gateway integration, server deployment, production APK handover, and 30-day bug warranty (8–10 Working Days).
