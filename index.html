@@ -212,6 +212,35 @@
       line-height: 1.7;
     }
 
+    /* MVP Scope Disclaimer Banner */
+    .mvp-disclaimer-banner {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(17, 24, 39, 0.95) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: var(--radius-md);
+      padding: 22px 26px;
+      margin-bottom: 36px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .mvp-disclaimer-icon {
+      color: var(--accent-amber);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .mvp-disclaimer-content h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent-amber);
+      margin-bottom: 6px;
+    }
+    .mvp-disclaimer-content p {
+      font-size: 0.9rem;
+      color: #d1d5db;
+      line-height: 1.65;
+    }
+
     /* Highlight Banner Cards */
     .pricing-grid {
       display: grid;
@@ -654,12 +683,18 @@
         padding: 0 !important;
         max-width: 100% !important;
       }
-      .card, .view-card, .milestone-card, .tracking-box, .maint-card, .sot-box {
+      .card, .view-card, .milestone-card, .tracking-box, .maint-card, .sot-box, .mvp-disclaimer-banner {
         background: #ffffff !important;
         border: 1px solid #e5e7eb !important;
         box-shadow: none !important;
         color: #111827 !important;
         page-break-inside: avoid;
+      }
+      .mvp-disclaimer-content h4 {
+        color: #b45309 !important;
+      }
+      .mvp-disclaimer-content p {
+        color: #374151 !important;
       }
       .hero-title {
         background: none !important;
@@ -714,6 +749,21 @@
         A custom-built marketplace engineered from the ground up—featuring 5 dedicated user views (Super Admin, City Admin, Vendor, Delivery Partner, Customer), Swiggy/Domino's-grade real-time GPS tracking, 60 days of post-delivery assistance, and a structured 1-year security & maintenance roadmap.
       </p>
     </section>
+
+    <!-- MVP Scope Clarification Note -->
+    <div class="mvp-disclaimer-banner">
+      <div class="mvp-disclaimer-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <div class="mvp-disclaimer-content">
+        <h4>Important Scope Clarification: Minimum Viable Product (MVP) Notice</h4>
+        <p>
+          Please note that this quotation and development agreement is strictly for a <strong>Minimum Viable Product (MVP)</strong>. 
+          While the platform delivers standard, production-ready food ordering, merchant operations, delivery dispatch, and live GPS map tracking inspired by workflows seen in Swiggy and Domino's, <strong>it is NOT an exact 1:1 duplication or enterprise clone of Swiggy or Domino's</strong>. 
+          Enterprise-scale proprietary systems—including multi-million-dollar AI route batching algorithms, micro-gamification, hyper-custom native animations, or complex multi-tiered corporate payroll/escrow engines—are intentionally excluded to guarantee reliable delivery within the fixed <strong>₹2,50,000 budget</strong>. Future enterprise enhancements can be iteratively expanded in Phase 2 as the business scales.
+        </p>
+      </div>
+    </div>
 
     <!-- Financial Cards Grid -->
     <div class="pricing-grid">
@@ -1031,6 +1081,9 @@
         <p style="color:#d1d5db; font-size:0.9rem; line-height:1.7;">
           To guarantee timely delivery and protect the project budget, <strong>the initially signed scope specification document acts as the sole, legally binding Single Source of Truth (SSOT)</strong>. 
           Any new feature requests, architectural shifts, or major workflow changes requested beyond this document or after the 2-month post-delivery period will be cataloged separately and quoted as Phase 2 change requests, ensuring zero surprise delays to your initial market launch.
+        </p>
+        <p style="color:#d1d5db; font-size:0.9rem; line-height:1.7; margin-top:12px; padding-top:12px; border-top:1px dashed rgba(245,158,11,0.25);">
+          <strong>MVP Non-Duplication Clause:</strong> Both parties explicitly agree that this delivery is an MVP engineered to validate product-market fit in a single city. It delivers standard, production-grade custom marketplace software without reproducing proprietary, decade-long enterprise algorithms or edge-case mechanics of Swiggy or Domino's.
         </p>
       </div>
     </section>

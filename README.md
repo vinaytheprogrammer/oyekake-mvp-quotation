@@ -13,6 +13,11 @@ Official software engineering proposal and Minimum Viable Product (MVP) quotatio
 
 ---
 
+> ⚠️ **Important Scope Clarification: Minimum Viable Product (MVP) Notice**  
+> This project represents a custom-built **Minimum Viable Product (MVP)**. While the platform incorporates standard, production-ready workflows inspired by platforms such as Swiggy and Domino's (vendor discovery, menu cart checkout, order state alerts, and live GPS map tracking), **it is NOT an exact 1:1 duplication or enterprise clone of Swiggy or Domino's**. Proprietary multi-million-dollar dispatch algorithms, deep gamification, and hyper-custom enterprise features are intentionally excluded to strictly maintain the ₹2,50,000 budget and rapid delivery timeline.
+
+---
+
 ## 5 Dedicated User Views & Interfaces
 
 1. **Super Admin Dashboard (Web):** Global revenue, GMV, platform-wide commission take-rates, city-level zone control, global audits, payout reconciliations.
