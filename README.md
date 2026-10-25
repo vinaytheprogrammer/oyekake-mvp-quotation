@@ -4,8 +4,11 @@ Official software engineering proposal and Minimum Viable Product (MVP) quotatio
 
 - 🌐 **Live Interactive Quotation Website:** [https://vinaytheprogrammer.github.io/oyekake-mvp-quotation/](https://vinaytheprogrammer.github.io/oyekake-mvp-quotation/)
 - 💰 **Total Fixed Development Cost:** ₹2,50,000 INR (Flat One-Time Investment)
-- 🚫 **Monthly Agency Charges:** ₹0 (All monthly third-party charges eliminated or direct client billing)
+- 🚫 **Monthly Agency Retainer:** ₹0 (All monthly third-party charges eliminated or direct client billing)
 - 📍 **Launch Geographic Focus:** Single City (Architected for instant multi-city expansion)
+- 📱 **Mobile Deliverables:** Native-performance **Android App** (`.aab`/`.apk`) & **iOS App** (`.ipa`/TestFlight)
+- 💻 **Web Portals:** Customer Ordering Website & Dedicated **Service, Support & Maintenance Administration Website**
+- 🔑 **Access Control:** Multi-tier Role-Based Access Control (**Super Admin** vs **City Admin / Operations**)
 - ⏱️ **Timeline:** 40–45 Working Days
 - 🛡️ **Post-Delivery Warranty:** **2 Months (60 Days)** of hands-on technical assistance for requirement-related fixes
 - 🔒 **Single Source of Truth (SSOT):** Initially signed scope document serves as the sole contractual benchmark
@@ -18,13 +21,45 @@ Official software engineering proposal and Minimum Viable Product (MVP) quotatio
 
 ---
 
-## 5 Dedicated User Views & Interfaces
+## Technical Deliverables: Android, iOS & Web Architecture
 
-1. **Super Admin Dashboard (Web):** Global revenue, GMV, platform-wide commission take-rates, city-level zone control, global audits, payout reconciliations.
-2. **City Admin (Operations Hub) Panel (Web):** Local city order queue monitoring, emergency manual dispatch override, local restaurant KYC/menu approvals, rider verifications.
-3. **Vendor / Restaurant Portal (Web / Tablet):** Continuous loud sound alerts for incoming orders, 1-tap accept/reject with preparation timer, live menu manager (stock toggles, variants, pricing), daily sales reports.
-4. **Delivery Partner Mobile Application (Android):** Online/offline duty toggle, nearby delivery assignment alerts, restaurant pickup & customer delivery navigation, background GPS streaming, OTP delivery confirmation.
-5. **Customer (User) Mobile App & Web (Flutter Android/iOS + Web):** GPS address discovery, rich category browsing, customizable cart, Razorpay/Cashfree online payments & Cash on Delivery, and **Swiggy/Domino's-Style Live Order Tracking**.
+1. **Android Customer & Delivery Applications:**
+   - Flutter Dart native compile with hardware-accelerated rendering.
+   - Built to target latest Google Play API levels.
+   - Deliverables: Release `.aab` (Android App Bundle) signed for Google Play Store + standalone `.apk` for internal testing.
+2. **iOS Customer Application:**
+   - Production-ready iOS build package and Xcode archive.
+   - Tested for iOS guidelines, ready for TestFlight beta testing and App Store distribution.
+3. **Customer Responsive Ordering Website:**
+   - Fast React / Next.js web application functioning across desktop, tablet, and mobile browsers without requiring app downloads.
+4. **Service, Support & Maintenance Administration Website (RBAC):**
+   - **Super Admin Role:**
+     - Master control over all system settings, global database maintenance, and commission take-rate configurations.
+     - Multi-city and regional franchise management.
+     - Payment gateway credentials, webhook secrets, and financial payout reconciliation.
+     - System-wide security audit logs and administrative delegation.
+   - **City Admin (Operations Hub) Role:**
+     - Local city-level order queue monitoring (unassigned, delayed, or stuck orders).
+     - Manual dispatch and emergency rider re-assignment.
+     - Local restaurant KYC document verification, menu moderation, and temporary store deactivation.
+     - Delivery partner document checks (driving license, vehicle registration).
+     - Customer grievance tickets and operational escalation.
+
+---
+
+## Deployment Charges & Infrastructure Accounts
+
+All professional engineering deployment services are **100% INCLUDED in the ₹2,50,000 fixed price**. External store accounts and domain registrations are client-owned directly with zero developer markups:
+
+| Component | Responsibility / Description | Cost to Client |
+|---|---|---|
+| **Technical Deployment Service** | Server provisioning, Docker containerization, PostgreSQL/PostGIS database setup, Nginx reverse proxy, PM2 cluster, and automated SSL | **₹0 (Included in ₹2.5L Fee)** |
+| **Store Submission Assistance** | Android keystore signing, Play Store upload, iOS certificates & provisioning profiles setup | **₹0 (Included in ₹2.5L Fee)** |
+| **Custom `.com` Domain Name** | Dedicated branded domain (e.g. `oyekake.com`) registered under client's corporate name on GoDaddy / Cloudflare Registrar | **~₹800 – ₹1,200 / year** (Direct to registrar) |
+| **Google Play Console Account** | Official Google Play Developer Account for Android publishing | **US$25 one-time lifetime fee** (~₹2,100 direct to Google) |
+| **Apple Developer Program** | Official Apple Developer Account for iOS App Store publishing (optional if launching Android-first) | **US$99 / year** (~₹8,300/yr direct to Apple) |
+| **Cloudflare DNS & SSL** | Enterprise-grade global CDN, DDoS mitigation, and auto-renewing SSL certificates | **₹0 (Free Forever)** |
+| **Cloud VPS Server** | DigitalOcean / Hetzner / Hostinger high-performance VPS for single-city launch | **~₹400 – ₹800 / month** (Direct to host) |
 
 ---
 
@@ -63,7 +98,7 @@ Official software engineering proposal and Minimum Viable Product (MVP) quotatio
 
 ## Milestone Schedule (₹2,50,000 Total)
 
-- **Milestone 1 (25% - ₹62,500):** UI/UX Design for all 5 roles, PostgreSQL PostGIS DB Schema & Git Setup (8–10 Days)
+- **Milestone 1 (25% - ₹62,500):** UI/UX Design for all roles, PostgreSQL PostGIS DB Schema & Git Setup (8–10 Days)
 - **Milestone 2 (25% - ₹62,500):** Backend REST APIs, Super Admin, City Admin & Vendor Portal (12–14 Days)
-- **Milestone 3 (25% - ₹62,500):** Customer Apps, Delivery Boy App, Swiggy Live GPS Tracking & Payments (12–14 Days)
-- **Milestone 4 (25% - ₹62,500):** QA Testing, VPS Production Deployment, Source Code Handover & **Commencement of 2 Months Free Support** (6–8 Days)
+- **Milestone 3 (25% - ₹62,500):** Customer Android & iOS Apps, Delivery Boy App, Swiggy Live GPS Tracking & Payments (12–14 Days)
+- **Milestone 4 (25% - ₹62,500):** QA Testing, VPS Production Deployment, Domain & Store Setup, Source Code Handover & **Commencement of 2 Months Free Support** (6–8 Days)
