@@ -1,43 +1,56 @@
-# OyeKake MVP Quotation & Architecture Plan
+# OyeKake MVP Architecture, Quotation & Scaling Roadmap
 
 Official software engineering proposal and Minimum Viable Product (MVP) quotation for the **OyeKake Multi-Vendor Food Delivery Platform**.
 
-- **Live Quotation Website (GitHub Pages):** [https://vinaytheprogrammer.github.io/oyekake-mvp-quotation/](https://vinaytheprogrammer.github.io/oyekake-mvp-quotation/)
-- **Total Fixed Development Cost:** ₹2,50,000 INR
-- **Monthly Agency Retainer:** ₹0 (All monthly third-party recurring charges eliminated or direct client billing)
-- **Timeline:** 40–45 Working Days
-- **Code Ownership:** 100% Source Code & Intellectual Property Handover
+- 🌐 **Live Interactive Quotation Website:** [https://vinaytheprogrammer.github.io/oyekake-mvp-quotation/](https://vinaytheprogrammer.github.io/oyekake-mvp-quotation/)
+- 💰 **Total Fixed Development Cost:** ₹2,50,000 INR (Flat One-Time Investment)
+- 🚫 **Monthly Agency Charges:** ₹0 (All monthly third-party charges eliminated or direct client billing)
+- 📍 **Launch Geographic Focus:** Single City (Architected for instant multi-city expansion)
+- ⏱️ **Timeline:** 40–45 Working Days
+- 🛡️ **Post-Delivery Warranty:** **2 Months (60 Days)** of hands-on technical assistance for requirement-related fixes
+- 🔒 **Single Source of Truth (SSOT):** Initially signed scope document serves as the sole contractual benchmark
+- 🛠️ **Long-Term SLA:** 1-Year Security Patches & Dependency Version Management
 
 ---
 
-## Deliverables Summary
+## 5 Dedicated User Views & Interfaces
 
-1. **Customer Mobile Application (Flutter - Android & iOS build) + Responsive Web App**
-2. **Restaurant Partner Portal (Web / Tablet view with live order sound alerts)**
-3. **Delivery Partner Mobile Application (Android with GPS directions & OTP completion)**
-4. **Super Admin Central Dashboard (Commissions, payouts, KYC approvals, real-time dispatch)**
-5. **High-Speed Backend API & PostgreSQL Database (PostGIS radius matching)**
-6. **Payment Gateway Integration (Razorpay / Cashfree) + Cash on Delivery**
-7. **30-Day Post-Launch Bug-Fix Warranty**
+1. **Super Admin Dashboard (Web):** Global revenue, GMV, platform-wide commission take-rates, city-level zone control, global audits, payout reconciliations.
+2. **City Admin (Operations Hub) Panel (Web):** Local city order queue monitoring, emergency manual dispatch override, local restaurant KYC/menu approvals, rider verifications.
+3. **Vendor / Restaurant Portal (Web / Tablet):** Continuous loud sound alerts for incoming orders, 1-tap accept/reject with preparation timer, live menu manager (stock toggles, variants, pricing), daily sales reports.
+4. **Delivery Partner Mobile Application (Android):** Online/offline duty toggle, nearby delivery assignment alerts, restaurant pickup & customer delivery navigation, background GPS streaming, OTP delivery confirmation.
+5. **Customer (User) Mobile App & Web (Flutter Android/iOS + Web):** GPS address discovery, rich category browsing, customizable cart, Razorpay/Cashfree online payments & Cash on Delivery, and **Swiggy/Domino's-Style Live Order Tracking**.
 
 ---
 
-## Scope Highlights (MVP vs Phase 2)
+## Swiggy / Domino's-Grade Live Tracking Engine
 
-| Component | MVP Scope (Included in ₹2.5L) | Phase 2 (Future Scope) |
-|---|---|---|
-| **Customer App** | Flutter cross-platform (Android/iOS) + Responsive Web | Siri Shortcuts & Smartwatch apps |
-| **Merchant Panel** | Live audio order alert, menu catalog, opening hours | Automated thermal POS hardware sync |
-| **Rider App** | Assignment alert, Google Maps navigation, OTP proof | Multi-order AI route batching |
-| **Admin Control** | Commission % settings, manual dispatch, sales reports | Automated instant split bank settlements |
-| **Notifications** | Firebase Cloud Messaging (Unlimited Free) | Paid third-party marketing suites |
-| **Phone Auth** | Firebase Free Tier / WhatsApp OTP | High-volume enterprise SMS gateways |
+- **5-Stage Order Tracker:** Order Placed ➔ Food Preparing ➔ Rider Assigned ➔ Out for Delivery (Live Moving Vehicle on Map) ➔ Delivered (via OTP).
+- **Cost-Optimized Coordinate Streaming:** Raw coordinates streamed over lightweight WebSockets with client-side bearing interpolation. Smooth, realistic vehicle movement without triggering excessive Google Maps API queries (operating within Google Maps $200 free monthly credit).
+
+---
+
+## Geographic Focus & Scaling Roadmap
+
+| Expansion Tier | Footprint | Technical Mechanism | Cloud Infra Cost |
+|---|---|---|---|
+| **Phase 1: Launch (MVP)** | **1 Focus City** | Single High-Performance VPS + PostgreSQL PostGIS + WebSockets | **~₹500 – ₹1,000 / mo** |
+| **Phase 2: Regional** | 3–5 Nearby Cities | Redis Cache for Rider Location Pub/Sub + DB Read Replicas | **~₹3,500 – ₹6,000 / mo** |
+| **Phase 3: National** | 20+ Cities / Pan-India | Docker/K8s Cluster + Kafka/RabbitMQ Event Queue + Auto Dispatch | **~₹15,000 – ₹35,000 / mo** |
+
+---
+
+## Post-Delivery Warranty, Maintenance & SSOT Terms
+
+1. **2 Months Included Assistance:** 60 days of bug fixing, configuration tuning, and minor requirement-related adjustments included in the base ₹2,50,000 fee.
+2. **Single Source of Truth (SSOT):** The signed specification acts as the legal source of truth. Any major additions outside this document will be treated as Phase 2 change requests to protect launch timelines.
+3. **1-Year Maintenance & Dependency SLA:** Ongoing protection against software rot—Node.js dependencies, npm security vulnerabilities, Flutter SDK updates, and Google Play target API compliance maintained under an annual maintenance contract (starting after Month 2).
 
 ---
 
 ## Milestone Schedule (₹2,50,000 Total)
 
-- **Milestone 1 (25% - ₹62,500):** UI/UX Design Prototypes, Database Schema & Architecture Approval (8–10 Days)
-- **Milestone 2 (25% - ₹62,500):** Backend REST APIs, Restaurant Partner Portal & Admin Dashboard (12–14 Days)
-- **Milestone 3 (25% - ₹62,500):** Customer Mobile & Web App, Delivery Boy App, Payment Gateway Integration (12–14 Days)
-- **Milestone 4 (25% - ₹62,500):** End-to-End QA Testing, Production Server Deployment, Source Code Handover (6–8 Days)
+- **Milestone 1 (25% - ₹62,500):** UI/UX Design for all 5 roles, PostgreSQL PostGIS DB Schema & Git Setup (8–10 Days)
+- **Milestone 2 (25% - ₹62,500):** Backend REST APIs, Super Admin, City Admin & Vendor Portal (12–14 Days)
+- **Milestone 3 (25% - ₹62,500):** Customer Apps, Delivery Boy App, Swiggy Live GPS Tracking & Payments (12–14 Days)
+- **Milestone 4 (25% - ₹62,500):** QA Testing, VPS Production Deployment, Source Code Handover & **Commencement of 2 Months Free Support** (6–8 Days)

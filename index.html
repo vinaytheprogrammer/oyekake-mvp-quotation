@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OyeKake MVP Quotation & Architecture Plan | ₹2,50,000 Flat</title>
-  <meta name="description" content="Custom Food Delivery Marketplace Software Development Quotation. Complete Swiggy/Zomato style platform built from scratch for ₹2,50,000 with zero monthly agency charges.">
+  <title>OyeKake MVP Architecture, Quotation & Scaling Roadmap | ₹2,50,000 Flat</title>
+  <meta name="description" content="Custom Food Delivery Marketplace Software Development Quotation. Complete Swiggy/Domino's style platform with 5 dedicated user views, live GPS tracking, 1-city focus, scaling roadmap, 2-month post-delivery assistance, and 1-year maintenance SLA.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-primary: #0a0e17;
       --bg-secondary: #111827;
-      --bg-card: rgba(17, 24, 39, 0.75);
-      --bg-card-hover: rgba(31, 41, 55, 0.85);
+      --bg-card: rgba(17, 24, 39, 0.78);
+      --bg-card-hover: rgba(31, 41, 55, 0.9);
       --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(16, 185, 129, 0.3);
+      --border-accent: rgba(16, 185, 129, 0.35);
+      --border-blue: rgba(59, 130, 246, 0.35);
+      --border-amber: rgba(245, 158, 11, 0.35);
       --text-main: #f3f4f6;
       --text-muted: #9ca3af;
       --text-faint: #6b7280;
@@ -50,7 +52,7 @@
       overflow-x: hidden;
     }
 
-    /* Background Ambient Gradients */
+    /* Ambient Gradients */
     body::before {
       content: "";
       position: fixed;
@@ -122,6 +124,20 @@
       50% { opacity: 0.4; transform: scale(0.85); }
     }
 
+    .badge-city {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid var(--border-blue);
+      color: #60a5fa;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+
     .actions-group {
       display: flex;
       align-items: center;
@@ -190,16 +206,16 @@
       margin-bottom: 16px;
     }
     .hero-subtitle {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       color: var(--text-muted);
-      max-width: 860px;
+      max-width: 920px;
       line-height: 1.7;
     }
 
     /* Highlight Banner Cards */
     .pricing-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.25fr 0.75fr;
       gap: 24px;
       margin-bottom: 48px;
     }
@@ -283,6 +299,11 @@
       border-color: rgba(59, 130, 246, 0.3);
       color: #60a5fa;
     }
+    .pill.amber {
+      background: rgba(245, 158, 11, 0.1);
+      border-color: rgba(245, 158, 11, 0.3);
+      color: #fbbf24;
+    }
 
     /* Comparison Box */
     .comparison-card h3 {
@@ -337,86 +358,174 @@
       font-size: 0.95rem;
     }
 
-    /* Deliverables Grid */
-    .modules-grid {
+    /* 5-Role Views Grid */
+    .views-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 20px;
     }
-    .module-card {
+    .view-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       padding: 24px;
       transition: all 0.2s ease;
+      position: relative;
     }
-    .module-card:hover {
+    .view-card:hover {
       transform: translateY(-2px);
       border-color: rgba(255, 255, 255, 0.2);
     }
-    .module-badge {
+    .view-badge {
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
-      padding: 3px 8px;
+      padding: 4px 10px;
       border-radius: 4px;
       display: inline-block;
       margin-bottom: 12px;
       letter-spacing: 0.05em;
     }
-    .badge-cust { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
-    .badge-rest { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
-    .badge-rider { background: rgba(16, 185, 129, 0.15); color: #34d399; }
-    .badge-admin { background: rgba(139, 92, 246, 0.15); color: #a78bfa; }
-    .badge-back { background: rgba(236, 72, 153, 0.15); color: #f472b6; }
+    .vbadge-super { background: rgba(139, 92, 246, 0.15); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3); }
+    .vbadge-admin { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .vbadge-vendor { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .vbadge-delivery { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .vbadge-user { background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.3); }
 
-    .module-title {
-      font-size: 1.15rem;
+    .view-title {
+      font-size: 1.2rem;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
-    .module-desc {
+    .view-target {
+      font-size: 0.82rem;
+      color: var(--accent-green);
+      font-family: var(--font-mono);
+      margin-bottom: 12px;
+    }
+    .view-desc {
       font-size: 0.88rem;
       color: var(--text-muted);
       margin-bottom: 16px;
+      line-height: 1.6;
     }
-    .module-features {
+    .view-features {
       list-style: none;
       font-size: 0.85rem;
     }
-    .module-features li {
-      padding: 5px 0;
+    .view-features li {
+      padding: 6px 0;
       color: #d1d5db;
       display: flex;
       align-items: flex-start;
       gap: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
     }
-    .module-features li::before {
+    .view-features li::before {
       content: "✓";
       color: var(--accent-green);
       font-weight: bold;
     }
 
-    /* Excluded Charges Matrix */
-    .zero-charges-banner {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.08));
+    /* Live Tracking Deep Dive Box */
+    .tracking-box {
+      background: linear-gradient(145deg, rgba(16, 185, 129, 0.06) 0%, rgba(17, 24, 39, 0.95) 100%);
       border: 1px solid var(--border-accent);
       border-radius: var(--radius-lg);
-      padding: 28px;
+      padding: 32px;
       margin-bottom: 28px;
     }
-    .zero-charges-banner h4 {
-      font-size: 1.15rem;
-      color: var(--accent-green);
-      margin-bottom: 8px;
-      font-weight: 700;
+    .tracking-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
     }
-    .zero-charges-banner p {
+    .step-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      text-align: center;
+    }
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      color: #000;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+    .step-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .step-desc {
+      font-size: 0.78rem;
       color: var(--text-muted);
-      font-size: 0.92rem;
-      line-height: 1.6;
     }
 
+    /* Scaling Roadmap Table */
+    .scaling-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .scaling-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-top: 16px;
+    }
+    .scaling-table th, .scaling-table td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .scaling-table th {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Maintenance & Legal Section */
+    .maint-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 860px) {
+      .maint-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .maint-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 28px;
+    }
+    .maint-card.highlight-free {
+      border: 1px solid var(--border-accent);
+      background: linear-gradient(150deg, rgba(16, 185, 129, 0.07) 0%, rgba(17, 24, 39, 0.95) 100%);
+    }
+    .maint-card.highlight-sla {
+      border: 1px solid var(--border-blue);
+      background: linear-gradient(150deg, rgba(59, 130, 246, 0.07) 0%, rgba(17, 24, 39, 0.95) 100%);
+    }
+
+    /* Zero Charges Table */
     .charges-table {
       width: 100%;
       border-collapse: collapse;
@@ -450,7 +559,7 @@
       gap: 4px;
     }
 
-    /* Milestones Timeline */
+    /* Milestones Grid */
     .milestone-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -494,101 +603,25 @@
       margin-top: 12px;
     }
     .m-items li {
-      padding: 4px 0;
+      padding: 5px 0;
       border-top: 1px dashed rgba(255, 255, 255, 0.05);
     }
 
-    /* Tech Stack Pills */
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-    }
-    .tech-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-subtle);
-      padding: 18px;
-      border-radius: var(--radius-sm);
-    }
-    .tech-role {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      color: var(--text-faint);
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      margin-bottom: 4px;
-    }
-    .tech-name {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-    .tech-desc {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    /* Comparison Table MVP vs Phase 2 */
-    .table-container {
-      overflow-x: auto;
+    /* Source of Truth Legal Callout */
+    .sot-box {
+      background: rgba(245, 158, 11, 0.05);
+      border: 1px solid var(--border-amber);
       border-radius: var(--radius-md);
-      border: 1px solid var(--border-subtle);
-      background: var(--bg-card);
+      padding: 24px;
+      margin-top: 24px;
     }
-    .scope-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.88rem;
-    }
-    .scope-table th, .scope-table td {
-      padding: 14px 18px;
-      text-align: left;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-    .scope-table th {
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--text-muted);
-      font-weight: 600;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .tag-inc {
-      background: rgba(16, 185, 129, 0.15);
-      color: #34d399;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      display: inline-block;
-    }
-    .tag-def {
-      background: rgba(107, 114, 128, 0.15);
-      color: #9ca3af;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      display: inline-block;
-    }
-
-    /* Terms & Sign-off */
-    .terms-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 28px;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-    .terms-box ol {
-      margin-left: 20px;
-      margin-top: 12px;
-    }
-    .terms-box li {
-      padding: 4px 0;
+    .sot-box h4 {
+      color: var(--accent-amber);
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     /* Footer */
@@ -621,7 +654,7 @@
         padding: 0 !important;
         max-width: 100% !important;
       }
-      .card, .module-card, .milestone-card, .tech-card, .table-container, .terms-box {
+      .card, .view-card, .milestone-card, .tracking-box, .maint-card, .sot-box {
         background: #ffffff !important;
         border: 1px solid #e5e7eb !important;
         box-shadow: none !important;
@@ -633,24 +666,15 @@
         -webkit-text-fill-color: #111827 !important;
         color: #111827 !important;
       }
-      .hero-subtitle, .module-desc, .tech-desc, .terms-box, .section-subtitle {
+      .hero-subtitle, .view-desc, .step-desc, .section-subtitle {
         color: #4b5563 !important;
       }
       .price-value {
         color: #059669 !important;
       }
-      .charges-table th, .scope-table th {
+      .scaling-table th, .charges-table th {
         background: #f3f4f6 !important;
         color: #374151 !important;
-      }
-      .tag-inc {
-        background: #ecfdf5 !important;
-        color: #065f46 !important;
-        border: 1px solid #a7f3d0;
-      }
-      .tag-def {
-        background: #f3f4f6 !important;
-        color: #4b5563 !important;
       }
     }
   </style>
@@ -660,7 +684,10 @@
   <div class="container">
     <!-- Top Action Bar -->
     <header class="top-bar">
-      <div class="badge-live">Official MVP Proposal • Approved Budget Scope</div>
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+        <div class="badge-live">Approved MVP Scope • Fixed Budget</div>
+        <div class="badge-city">Target: Single City Initial Focus</div>
+      </div>
       <div class="actions-group">
         <button class="btn btn-outline" onclick="window.print()" id="printBtn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
@@ -668,7 +695,7 @@
         </button>
         <a href="https://github.com/vinaytheprogrammer/oyekake-mvp-quotation" target="_blank" class="btn btn-primary" id="repoBtn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          View GitHub Repository
+          GitHub Repo
         </a>
       </div>
     </header>
@@ -676,15 +703,15 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-meta">
-        <span><strong>Client:</strong> OyeKake Team</span>
+        <span><strong>Client:</strong> OyeKake Executive Team</span>
         <span>•</span>
-        <span><strong>Type:</strong> Custom From-Scratch Marketplace MVP</span>
+        <span><strong>Architecture:</strong> 5-Role Custom Ecosystem + Live GPS Engine</span>
         <span>•</span>
-        <span><strong>Timeline:</strong> 40–45 Working Days</span>
+        <span><strong>Scope:</strong> Phase 1 (Single City) ➔ Scalable to Multi-City</span>
       </div>
-      <h1 class="hero-title">OyeKake Food Delivery Platform</h1>
+      <h1 class="hero-title">OyeKake On-Demand Food Ecosystem</h1>
       <p class="hero-subtitle">
-        A custom, multi-vendor food delivery ecosystem engineered from scratch—connecting Customers, Restaurants, Delivery Riders, and Administrators. Architected to eliminate unnecessary third-party overhead and delivered within a fixed, transparent investment.
+        A custom-built marketplace engineered from the ground up—featuring 5 dedicated user views (Super Admin, City Admin, Vendor, Delivery Partner, Customer), Swiggy/Domino's-grade real-time GPS tracking, 60 days of post-delivery assistance, and a structured 1-year security & maintenance roadmap.
       </p>
     </section>
 
@@ -692,20 +719,20 @@
     <div class="pricing-grid">
       <!-- Main Highlight Card -->
       <div class="card card-highlight">
-        <div class="pill green">Fixed Price Contract</div>
+        <div class="pill green">Fixed Scope & Budget Guarantee</div>
         <div class="price-tag">
           <span class="price-currency">₹</span>
           <span class="price-value">2,50,000</span>
-          <span class="price-period">Flat Total Cost</span>
+          <span class="price-period">Flat One-Time Investment</span>
         </div>
         <p style="color: #d1d5db; font-size: 0.95rem; margin-bottom: 16px;">
-          All-inclusive custom software engineering fee. Covers full system architecture, APIs, 4 frontend platforms, database setup, and 30 days of warranty.
+          Complete from-scratch engineering covering all 5 role views, custom WebSocket live rider tracking, payment gateway integration, database setup, and <strong>2 Months (60 Days)</strong> of post-delivery assistance for requirement-related fixes.
         </p>
         <div class="feature-pills">
-          <span class="pill green">✓ ₹0 Monthly Agency Retainer</span>
-          <span class="pill green">✓ 100% Source Code Ownership</span>
-          <span class="pill blue">✓ Cross-Platform Android + iOS Ready</span>
-          <span class="pill blue">✓ Indian Payment Gateway Integrated</span>
+          <span class="pill green">✓ 2 Months Post-Delivery Support Included</span>
+          <span class="pill green">✓ Single Source of Truth (SSOT) Locked</span>
+          <span class="pill blue">✓ Swiggy/Domino's Style Live GPS Tracking</span>
+          <span class="pill amber">✓ Single-City Launch Focused (Multi-City Ready)</span>
         </div>
       </div>
 
@@ -713,247 +740,298 @@
       <div class="card comparison-card">
         <h3>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent-green)"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-          Quotation Optimization
+          Agency Quote vs Our Blueprint
         </h3>
         <div class="comp-item">
-          <span>Agency Development Fee</span>
+          <span>Development Fee</span>
           <div>
             <span class="comp-old">₹2,95,000 (inc GST)</span> &nbsp;
             <span class="comp-new">₹2,50,000 Flat</span>
           </div>
         </div>
         <div class="comp-item">
-          <span>Monthly Retainer / Charges</span>
+          <span>Monthly Retainer Charges</span>
           <div>
             <span class="comp-old">₹5,000–₹25,000/mo</span> &nbsp;
             <span class="comp-new">₹0 / Month</span>
           </div>
         </div>
         <div class="comp-item">
-          <span>Delivery Timeline</span>
+          <span>Post-Delivery Warranty</span>
           <div>
-            <span class="comp-old">60 Working Days</span> &nbsp;
-            <span class="comp-new">40–45 Days</span>
+            <span class="comp-old">30 Days Limited</span> &nbsp;
+            <span class="comp-new">60 Days (2 Months)</span>
           </div>
         </div>
         <div class="comp-item">
-          <span>Code Ownership</span>
+          <span>Live Tracking Quality</span>
           <div>
-            <span class="comp-new">100% Complete IP Handover</span>
+            <span class="comp-new">WebSocket Real-Time Tracking</span>
+          </div>
+        </div>
+        <div class="comp-item">
+          <span>Maintenance & SLA</span>
+          <div>
+            <span class="comp-new">1-Year Security & Dependency Mgt</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Exclusion of Monthly Charges Section -->
+    <!-- The 5 Core User Views Section -->
     <section class="section">
       <div class="section-header">
         <h2 class="section-title">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Zero Monthly Agency Fees & Low-Cost Infrastructure
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          The 5 Dedicated User Views & Portals
         </h2>
         <p class="section-subtitle">
-          How this quotation eliminates ongoing vendor retainers and leverages direct-billing free tiers to minimize operating burn.
+          Every actor in the ecosystem has a purpose-engineered, role-based interface tailored to their exact operational needs.
         </p>
       </div>
 
-      <div class="zero-charges-banner">
-        <h4>Client Direct-Billing Policy (Zero Agency Markup)</h4>
-        <p>
-          Unlike standard agency quotations that mark up monthly servers or bill monthly retainers, <strong>all infrastructure accounts are registered directly in your name</strong>. You pay zero developer retainers, and the MVP architecture is specifically optimized to operate on high-performance low-cost / free-tier services.
-        </p>
-      </div>
-
-      <table class="charges-table">
-        <thead>
-          <tr>
-            <th>Expense Category</th>
-            <th>Original Agency Estimate</th>
-            <th>Our Optimized MVP Strategy</th>
-            <th>Client Direct Cost</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Cloud Hosting & DB</strong></td>
-            <td>₹3,000 – ₹10,000 / month</td>
-            <td>High-performance single VPS (DigitalOcean / Hetzner) or Supabase Free Tier</td>
-            <td><span class="cost-eliminated">~₹400 – ₹800 / month</span> (Direct to host)</td>
-          </tr>
-          <tr>
-            <td><strong>Maps & Geolocation</strong></td>
-            <td>₹0 – ₹10,000+ / month</td>
-            <td>Google Maps $200 free monthly allowance (~28,000 loads) or OpenStreetMap tiles</td>
-            <td><span class="cost-eliminated">₹0 / month</span> (Within free quota)</td>
-          </tr>
-          <tr>
-            <td><strong>Push Notifications</strong></td>
-            <td>Extra fee</td>
-            <td>Firebase Cloud Messaging (FCM) unlimited push delivery</td>
-            <td><span class="cost-eliminated">₹0 (Free Forever)</span></td>
-          </tr>
-          <tr>
-            <td><strong>SMS / Phone OTP</strong></td>
-            <td>₹0.25 – ₹1.00 / SMS + DLT</td>
-            <td>Firebase Phone Authentication (10,000 free SMS/mo) or WhatsApp OTP</td>
-            <td><span class="cost-eliminated">₹0 – ₹300 / month</span></td>
-          </tr>
-          <tr>
-            <td><strong>SSL & CDN Security</strong></td>
-            <td>₹0 – ₹6,000 / year</td>
-            <td>Cloudflare Free Tier + Auto-renewing Let's Encrypt SSL</td>
-            <td><span class="cost-eliminated">₹0 (Free)</span></td>
-          </tr>
-          <tr>
-            <td><strong>Agency Maintenance Retainer</strong></td>
-            <td>Optional monthly quote</td>
-            <td>30 Days bug warranty included; zero monthly recurring developer retainers</td>
-            <td><span class="cost-eliminated">₹0 / month</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- Platform Modules Breakdown -->
-    <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          Complete 5-Module Deliverables Scope
-        </h2>
-        <p class="section-subtitle">A cohesive ecosystem comprising 4 purpose-built frontends and 1 high-speed backend engine.</p>
-      </div>
-
-      <div class="modules-grid">
-        <!-- Customer Mobile App & Web -->
-        <div class="module-card">
-          <span class="module-badge badge-cust">Customer Experience</span>
-          <h3 class="module-title">Customer App & Responsive Web</h3>
-          <p class="module-desc">Native-feel cross-platform ordering application (Flutter Android/iOS) and desktop/mobile web portal.</p>
-          <ul class="module-features">
-            <li>OTP login & customer profile with saved addresses</li>
-            <li>GPS-based restaurant discovery & radius filtering</li>
-            <li>Restaurant menu categories, veg/non-veg tags, variants & add-ons</li>
-            <li>Live shopping cart, cooking instructions & coupon codes</li>
-            <li>Online payment (Razorpay/Cashfree/UPI) & Cash on Delivery</li>
-            <li>Real-time order state tracker & order history reorder</li>
+      <div class="views-grid">
+        <!-- 1. Super Admin View -->
+        <div class="view-card">
+          <span class="view-badge vbadge-super">Role 1: Master Control</span>
+          <h3 class="view-title">Super Admin Dashboard</h3>
+          <div class="view-target">Target: Web (Desktop & Tablet Optimized)</div>
+          <p class="view-desc">Central command panel for high-level business governance, revenue reconciliation, and platform policies.</p>
+          <ul class="view-features">
+            <li>Global revenue, gross merchandise value (GMV) & commission analytics</li>
+            <li>City-wise operating controls & zone boundary definitions</li>
+            <li>Platform commission fee settings (% take-rate & flat delivery slabs)</li>
+            <li>Sub-admin / City manager role assignment and permissions</li>
+            <li>Global restaurant & rider database audit logs</li>
+            <li>Payment gateway transaction history & payout reconciliation</li>
           </ul>
         </div>
 
-        <!-- Restaurant Partner Portal -->
-        <div class="module-card">
-          <span class="module-badge badge-rest">Merchant System</span>
-          <h3 class="module-title">Restaurant Management Portal</h3>
-          <p class="module-desc">Web & tablet-friendly dashboard designed for fast kitchen order processing and catalog control.</p>
-          <ul class="module-features">
-            <li>Loud sound notification alerts for new incoming orders</li>
-            <li>1-Tap order Accept / Reject with food preparation timer</li>
-            <li>Live menu manager (edit prices, item status, out-of-stock toggle)</li>
-            <li>Add-on and customization pricing management</li>
-            <li>Store operating hours & online/offline store switch</li>
-            <li>Daily sales and completed order summaries</li>
+        <!-- 2. Admin / City Operations View -->
+        <div class="view-card">
+          <span class="view-badge vbadge-admin">Role 2: Operations Hub</span>
+          <h3 class="view-title">City Admin (Operations) Panel</h3>
+          <div class="view-target">Target: Web (Operations Room Dashboard)</div>
+          <p class="view-desc">Dedicated daily operational console for the launch city to manage live queues and fleet dispatch.</p>
+          <ul class="view-features">
+            <li>Live order dispatch board (monitoring stuck, delayed, or unassigned orders)</li>
+            <li>Manual rider assignment and emergency dispatch reassignment</li>
+            <li>Local restaurant KYC verification, menu approval & suspension</li>
+            <li>Delivery partner document verification (driving license, vehicle registration)</li>
+            <li>Customer grievance escalation & order cancellation handling</li>
+            <li>City-level promo code creation & local marketing banners</li>
           </ul>
         </div>
 
-        <!-- Delivery Partner Mobile App -->
-        <div class="module-card">
-          <span class="module-badge badge-rider">Logistics & Fleet</span>
-          <h3 class="module-title">Delivery Partner Android App</h3>
-          <p class="module-desc">Streamlined mobile application for riders to receive assignments and navigate pickups/deliveries.</p>
-          <ul class="module-features">
-            <li>Rider online/offline availability switch</li>
-            <li>Real-time delivery assignment broadcast notifications</li>
-            <li>Order pickup from restaurant & customer delivery directions</li>
-            <li>1-Tap navigation launcher (Google Maps route)</li>
-            <li>Customer contact via masked call/direct link</li>
-            <li>OTP verification to confirm delivery completion</li>
+        <!-- 3. Vendor / Restaurant View -->
+        <div class="view-card">
+          <span class="view-badge vbadge-vendor">Role 3: Merchant Kitchen</span>
+          <h3 class="view-title">Vendor (Restaurant) Portal</h3>
+          <div class="view-target">Target: Web / Android Tablet App</div>
+          <p class="view-desc">Fast kitchen display system designed for busy chefs and restaurant billing counters.</p>
+          <ul class="view-features">
+            <li>Continuous sound alerts with visual flashing for incoming orders</li>
+            <li>1-Tap Accept / Reject with food preparation timer (e.g. 15, 25, 40 mins)</li>
+            <li>Live order lifecycle updates: "Food Prepared & Ready for Pickup"</li>
+            <li>Full menu management: add dishes, edit prices, mark items "Out of Stock"</li>
+            <li>Add-on, variant (sizes), and combo meal customization controls</li>
+            <li>Daily sales report, settlement ledger, and order history view</li>
           </ul>
         </div>
 
-        <!-- Super Admin Panel -->
-        <div class="module-card">
-          <span class="module-badge badge-admin">Master Control</span>
-          <h3 class="module-title">Central Admin Dashboard</h3>
-          <p class="module-desc">Complete administrative oversight over all transactions, restaurants, riders, and platform commissions.</p>
-          <ul class="module-features">
-            <li>Real-time live monitoring of all active platform orders</li>
-            <li>Commission % rule configuration per restaurant</li>
-            <li>Delivery fee calculation settings (distance/flat slab)</li>
-            <li>Restaurant KYC document review & activation controls</li>
-            <li>Rider onboarding and manual dispatch override</li>
-            <li>Financial payout reports & daily/weekly sales analytics</li>
+        <!-- 4. Delivery Partner View -->
+        <div class="view-card">
+          <span class="view-badge vbadge-delivery">Role 4: Fleet Logistics</span>
+          <h3 class="view-title">Delivery Partner Mobile App</h3>
+          <div class="view-target">Target: Native-Performance Android Mobile App</div>
+          <p class="view-desc">Lightweight, battery-efficient mobile application for riders on motorcycles and bicycles.</p>
+          <ul class="view-features">
+            <li>Online / Offline duty toggle with active shift status</li>
+            <li>Instant push notification alerts for nearby delivery assignments</li>
+            <li>Pickup address from restaurant & customer delivery directions</li>
+            <li>1-Tap turn-by-turn navigation launcher (Google Maps routing)</li>
+            <li>Background GPS streaming to server for live customer tracking</li>
+            <li>OTP verification with customer to complete order delivery safely</li>
           </ul>
         </div>
 
-        <!-- Backend & Infrastructure -->
-        <div class="module-card">
-          <span class="module-badge badge-back">Core Engine</span>
-          <h3 class="module-title">Backend API & Database</h3>
-          <p class="module-desc">Secure, scalable server architecture built with clean micro-routing and optimized geospatial indexing.</p>
-          <ul class="module-features">
-            <li>Node.js / Express or NestJS REST API architecture</li>
-            <li>PostgreSQL + PostGIS for lightning-fast radius geo-queries</li>
-            <li>WebSockets for sub-second status changes and live kitchen alerts</li>
-            <li>Role-Based Access Control (RBAC) & JWT authentication</li>
-            <li>Webhooks for Razorpay/Cashfree payment reconciliation</li>
-            <li>Containerized Docker deployment configuration</li>
+        <!-- 5. User / Customer View -->
+        <div class="view-card">
+          <span class="view-badge vbadge-user">Role 5: Consumer Ordering</span>
+          <h3 class="view-title">Customer App & Responsive Web</h3>
+          <div class="view-target">Target: Flutter Mobile App (Android/iOS) + Responsive Web</div>
+          <p class="view-desc">Frictionless, consumer-grade ordering application designed for maximum conversion and delight.</p>
+          <ul class="view-features">
+            <li>Fast mobile number OTP login & multi-address book (Home, Work, Other)</li>
+            <li>GPS location selector & radius-based restaurant discovery</li>
+            <li>Rich menu browsing, veg/non-veg filters, ratings, and discounts</li>
+            <li>Custom cooking instructions, coupon codes & live checkout</li>
+            <li>Instant online payments (UPI, Cards, Netbanking) & Cash on Delivery</li>
+            <li><strong>Swiggy/Domino's-Style Live Order & Delivery Map Tracking</strong></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Scope Matrix Table -->
+    <!-- Swiggy / Domino's Style Live Tracking Deep Dive -->
     <section class="section">
       <div class="section-header">
         <h2 class="section-title">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-          Scope Boundaries: MVP vs Phase 2 Expansion
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          Swiggy / Domino's-Grade Live Tracking Engine
         </h2>
-        <p class="section-subtitle">Strict feature segregation to guarantee high software quality and launch within ₹2,50,000.</p>
+        <p class="section-subtitle">
+          How real-time location streaming is engineered to deliver a seamless consumer experience while preventing runaway Google Maps API bills.
+        </p>
       </div>
 
-      <div class="table-container">
-        <table class="scope-table">
+      <div class="tracking-box">
+        <h3 style="font-size:1.25rem; font-weight:700; color:#fff; margin-bottom:10px;">The 5-Stage Live Order Lifecycle</h3>
+        <p style="color:var(--text-muted); font-size:0.92rem; max-width:850px;">
+          Customers experience an interactive step-by-step visual tracker backed by real-time WebSockets. When the rider picks up the food, the map transforms into a live moving vehicle view showing estimated time of arrival (ETA).
+        </p>
+
+        <div class="tracking-steps-grid">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <div class="step-name">Order Placed</div>
+            <div class="step-desc">Payment confirmed; restaurant alerted with live chime.</div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <div class="step-name">Food Preparing</div>
+            <div class="step-desc">Kitchen confirms order and estimated prep timer.</div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <div class="step-name">Rider Assigned</div>
+            <div class="step-desc">Rider navigates to restaurant to collect package.</div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <div class="step-name">Out for Delivery</div>
+            <div class="step-desc"><strong>Live moving bike on map</strong> with real-time ETA.</div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">5</div>
+            <div class="step-name">Delivered</div>
+            <div class="step-desc">Customer provides OTP to rider; order marked complete.</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.3); border-radius: var(--radius-sm); padding: 18px; border: 1px solid var(--border-subtle); font-size: 0.88rem; color: #d1d5db;">
+          <strong style="color:var(--accent-green);">Cost-Engineered Architecture:</strong> Traditional apps burn thousands of dollars querying Google Directions API every 3 seconds. Our engine streams raw coordinates over lightweight WebSockets with <em>client-side bearing interpolation</em>. This achieves smooth, realistic vehicle motion while keeping map API usage firmly within the <strong>Google Maps $200 free monthly allowance (~₹0 cost)</strong>.
+        </div>
+      </div>
+    </section>
+
+    <!-- Geographic Focus & Scaling Roadmap -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          Launch Focus: Single City & Scaling Roadmap
+        </h2>
+        <p class="section-subtitle">
+          Phase 1 is strictly geo-fenced to <strong>One Target City</strong> to guarantee operational profitability, with an architecture ready to scale statewide and nationally.
+        </p>
+      </div>
+
+      <div class="scaling-card">
+        <h4 style="font-size:1.1rem; color:#fff; margin-bottom:8px;">Why Single-City Focus in Phase 1?</h4>
+        <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
+          Focusing initial launch on 1 city keeps operational density tight, delivery times under 30 minutes, and infrastructure costs below ₹1,000/month. The software code is written with a database architecture (`city_id` and `zone_polygon` indexing) so that adding City #2, #3, or #50 requires zero code rewrites—only an admin toggle.
+        </p>
+
+        <table class="scaling-table">
           <thead>
             <tr>
-              <th>Feature / Component</th>
-              <th>Phase 1 (MVP Scope — Included)</th>
-              <th>Phase 2 (Future Post-Launch Scope)</th>
+              <th>Expansion Tier</th>
+              <th>Geographic Footprint</th>
+              <th>Technical Scaling Mechanism</th>
+              <th>Estimated Cloud Infrastructure Cost</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Order Workflow</strong></td>
-              <td><span class="tag-inc">Included</span> Full cycle: Placement ➔ Prep ➔ Rider Pickup ➔ OTP Delivery</td>
-              <td><span class="tag-def">Phase 2</span> Automated multi-order batching algorithm</td>
+              <td><strong>Phase 1: Launch (MVP)</strong></td>
+              <td><strong>1 Focus City (Current Scope)</strong></td>
+              <td>Single High-Performance VPS + PostgreSQL PostGIS + WebSockets</td>
+              <td><strong style="color:var(--accent-green);">~₹500 – ₹1,000 / month</strong> (Billed to client directly)</td>
             </tr>
             <tr>
-              <td><strong>Customer Apps</strong></td>
-              <td><span class="tag-inc">Included</span> Flutter Android & iOS Build + Responsive Web App</td>
-              <td><span class="tag-def">Phase 2</span> Apple Watch / Siri Shortcuts integration</td>
+              <td><strong>Phase 2: Regional (3–5 Cities)</strong></td>
+              <td>3–5 Nearby Cities / Districts</td>
+              <td>Redis Cache Layer for Rider Location Pub/Sub + Database Read Replicas</td>
+              <td><strong style="color:#60a5fa;">~₹3,500 – ₹6,000 / month</strong> (Low overhead)</td>
             </tr>
             <tr>
-              <td><strong>Payment Gateway</strong></td>
-              <td><span class="tag-inc">Included</span> 1 Indian Gateway (Razorpay/Cashfree) + Cash on Delivery</td>
-              <td><span class="tag-def">Phase 2</span> Automated split payouts / escrow settlement</td>
-            </tr>
-            <tr>
-              <td><strong>Rider Management</strong></td>
-              <td><span class="tag-inc">Included</span> Dedicated Rider App with OTP confirmation & GPS route launch</td>
-              <td><span class="tag-def">Phase 2</span> Multi-leg AI route optimization</td>
-            </tr>
-            <tr>
-              <td><strong>Customer Support</strong></td>
-              <td><span class="tag-inc">Included</span> 1-Click WhatsApp / Phone Call direct support button</td>
-              <td><span class="tag-def">Phase 2</span> In-app live chat ticketing system</td>
-            </tr>
-            <tr>
-              <td><strong>Marketing & Promos</strong></td>
-              <td><span class="tag-inc">Included</span> Percentage & flat coupons, minimum order restrictions</td>
-              <td><span class="tag-def">Phase 2</span> Gamified referral tree & loyalty scratch cards</td>
+              <td><strong>Phase 3: State / National (20+ Cities)</strong></td>
+              <td>Multi-State / Pan-India</td>
+              <td>Docker/Kubernetes Cluster + Kafka/RabbitMQ Event Bus + Automated Dispatch Batching</td>
+              <td><strong style="color:#fbbf24;">~₹15,000 – ₹35,000 / month</strong> (Self-funded by high GMV)</td>
             </tr>
           </tbody>
         </table>
+      </div>
+    </section>
+
+    <!-- Post-Delivery Assistance, Maintenance & 1-Year SLA -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Post-Delivery Support & 1-Year Maintenance SLA
+        </h2>
+        <p class="section-subtitle">
+          Clear, contractual commitments for post-delivery warranty, source-of-truth governance, and long-term security.
+        </p>
+      </div>
+
+      <div class="maint-grid">
+        <!-- 2 Months Post-Delivery Support -->
+        <div class="maint-card highlight-free">
+          <div class="pill green" style="margin-bottom:12px;">Included In ₹2,50,000 Fee</div>
+          <h3 style="font-size:1.25rem; font-weight:700; color:#fff; margin-bottom:8px;">2 Months Post-Delivery Assistance</h3>
+          <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:14px; line-height:1.6;">
+            We do not abandon you upon deployment. You receive <strong>60 full days (2 months)</strong> of hands-on technical assistance starting from the official staging/production handover date.
+          </p>
+          <ul class="view-features">
+            <li>Resolution of all reproducible functional bugs or UI defects</li>
+            <li>Small requirement-related tweaks and configuration tuning</li>
+            <li>Assistance with payment gateway live verification (Razorpay/Cashfree)</li>
+            <li>Staff orientation for Super Admin & Restaurant order management</li>
+            <li>Server uptime monitoring during initial launch campaigns</li>
+          </ul>
+        </div>
+
+        <!-- 1-Year Security & Dependency SLA -->
+        <div class="maint-card highlight-sla">
+          <div class="pill blue" style="margin-bottom:12px;">Long-Term Stability SLA</div>
+          <h3 style="font-size:1.25rem; font-weight:700; color:#fff; margin-bottom:8px;">1-Year Maintenance & Dependency SLA</h3>
+          <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:14px; line-height:1.6;">
+            Mobile OSs and cloud environments evolve constantly. To safeguard your system from obsolescence, we offer an Annual Maintenance Contract (AMC) for 1 full year.
+          </p>
+          <ul class="view-features">
+            <li><strong>Dependency Management:</strong> Node.js, npm, and Flutter packages kept updated</li>
+            <li><strong>Security Vulnerability Patches:</strong> CVE patches applied to libraries and OS</li>
+            <li><strong>App Store Compliance:</strong> Android Target SDK updates as required by Google Play</li>
+            <li><strong>Database Health:</strong> Automated routine backups & database vacuuming</li>
+            <li><strong>Commercial Terms:</strong> Small flat monthly retainer (or ₹30,000/year) starting after Month 2</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Single Source of Truth Callout -->
+      <div class="sot-box">
+        <h4>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Single Source of Truth (SSOT) Contractual Clause
+        </h4>
+        <p style="color:#d1d5db; font-size:0.9rem; line-height:1.7;">
+          To guarantee timely delivery and protect the project budget, <strong>the initially signed scope specification document acts as the sole, legally binding Single Source of Truth (SSOT)</strong>. 
+          Any new feature requests, architectural shifts, or major workflow changes requested beyond this document or after the 2-month post-delivery period will be cataloged separately and quoted as Phase 2 change requests, ensuring zero surprise delays to your initial market launch.
+        </p>
       </div>
     </section>
 
@@ -962,57 +1040,59 @@
       <div class="section-header">
         <h2 class="section-title">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          Milestone Delivery & Payment Plan
+          Milestone Delivery & Payment Plan (₹2,50,000 Total)
         </h2>
-        <p class="section-subtitle">Risk-free, verification-backed payment milestones aligned with concrete code deliverables.</p>
+        <p class="section-subtitle">Risk-free, delivery-backed payments tied to verifiable milestone demonstrations.</p>
       </div>
 
       <div class="milestone-grid">
         <div class="milestone-card">
           <div class="m-num">MILESTONE 01</div>
-          <h3 class="m-title">UI/UX & Architecture</h3>
+          <h3 class="m-title">UI/UX & DB Architecture</h3>
           <div class="m-price">₹62,500 <span class="m-percent">(25%)</span></div>
           <p style="font-size:0.85rem; color:var(--text-muted);">Duration: 8–10 Working Days</p>
           <ul class="m-items">
-            <li>Figma UI/UX screen design approval</li>
-            <li>PostgreSQL schema & DB models</li>
-            <li>Git repository & dev environment setup</li>
+            <li>Figma UI/UX screen designs for all 5 roles</li>
+            <li>PostgreSQL schema with PostGIS geo-indexing</li>
+            <li>Git repository setup & API contracts finalized</li>
           </ul>
         </div>
 
         <div class="milestone-card">
           <div class="m-num">MILESTONE 02</div>
-          <h3 class="m-title">Backend & Admin Portal</h3>
+          <h3 class="m-title">Backend & Admin / Vendor</h3>
           <div class="m-price">₹62,500 <span class="m-percent">(25%)</span></div>
           <p style="font-size:0.85rem; color:var(--text-muted);">Duration: 12–14 Working Days</p>
           <ul class="m-items">
-            <li>Core REST APIs & Auth endpoints</li>
-            <li>Restaurant Web Portal (Live sound orders)</li>
-            <li>Super Admin Control Dashboard</li>
+            <li>REST APIs + JWT Auth for all roles</li>
+            <li>Super Admin & City Admin web portals</li>
+            <li>Vendor Portal with live sound order alerts</li>
           </ul>
         </div>
 
         <div class="milestone-card">
           <div class="m-num">MILESTONE 03</div>
-          <h3 class="m-title">Customer & Rider Apps</h3>
+          <h3 class="m-title">Customer, Rider & Live GPS</h3>
           <div class="m-price">₹62,500 <span class="m-percent">(25%)</span></div>
           <p style="font-size:0.85rem; color:var(--text-muted);">Duration: 12–14 Working Days</p>
           <ul class="m-items">
-            <li>Customer Flutter Mobile App & Web</li>
-            <li>Delivery Partner Android App</li>
-            <li>Razorpay PG & live order status integration</li>
+            <li>Customer Mobile App & Web ordering</li>
+            <li>Delivery Partner App with background GPS</li>
+            <li>Swiggy-style live moving vehicle map tracking</li>
+            <li>Razorpay PG & COD checkout integration</li>
           </ul>
         </div>
 
         <div class="milestone-card">
           <div class="m-num">MILESTONE 04</div>
-          <h3 class="m-title">QA, Launch & Handover</h3>
+          <h3 class="m-title">QA, Handover & 2-Mo Support</h3>
           <div class="m-price">₹62,500 <span class="m-percent">(25%)</span></div>
           <p style="font-size:0.85rem; color:var(--text-muted);">Duration: 6–8 Working Days</p>
           <ul class="m-items">
-            <li>End-to-end integration & stress testing</li>
+            <li>End-to-end integration & load testing</li>
             <li>Production server deployment & SSL</li>
-            <li>100% Source code transfer & 30-day warranty</li>
+            <li>100% Source code repository transfer</li>
+            <li><strong>Commencement of 2 Months Free Assistance</strong></li>
           </ul>
         </div>
       </div>
@@ -1023,60 +1103,42 @@
       <div class="section-header">
         <h2 class="section-title">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          Enterprise Technology Stack
+          Production Technology Stack
         </h2>
-        <p class="section-subtitle">Modern, battle-tested technologies with high ecosystem support and zero vendor lock-in.</p>
+        <p class="section-subtitle">Scalable, open technologies ensuring zero vendor lock-in and high developer availability.</p>
       </div>
 
-      <div class="tech-grid">
-        <div class="tech-card">
-          <div class="tech-role">Mobile Framework</div>
-          <div class="tech-name">Flutter (Dart)</div>
-          <div class="tech-desc">Native performance on Android & iOS with a single maintainable codebase.</div>
+      <div class="views-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+        <div class="view-card">
+          <div style="font-size:0.75rem; text-transform:uppercase; color:var(--accent-green); font-weight:700;">Mobile Apps</div>
+          <h4 style="font-size:1.1rem; margin: 4px 0 8px;">Flutter (Dart)</h4>
+          <p style="font-size:0.82rem; color:var(--text-muted);">Shared performant codebase for Customer (Android + iOS) & Delivery Partner App with native GPS drivers.</p>
         </div>
-        <div class="tech-card">
-          <div class="tech-role">Web Applications</div>
-          <div class="tech-name">React / Next.js</div>
-          <div class="tech-desc">Ultra-fast, responsive web apps for Customer, Restaurant, and Admin portals.</div>
+        <div class="view-card">
+          <div style="font-size:0.75rem; text-transform:uppercase; color:var(--accent-blue); font-weight:700;">Web Portals</div>
+          <h4 style="font-size:1.1rem; margin: 4px 0 8px;">React / Next.js</h4>
+          <p style="font-size:0.82rem; color:var(--text-muted);">Lightweight, responsive dashboards for Super Admin, City Admin, and Restaurant kitchen tablets.</p>
         </div>
-        <div class="tech-card">
-          <div class="tech-role">Backend Server</div>
-          <div class="tech-name">Node.js (Nest/Express)</div>
-          <div class="tech-desc">High-concurrency asynchronous event-driven architecture for rapid order streaming.</div>
+        <div class="view-card">
+          <div style="font-size:0.75rem; text-transform:uppercase; color:var(--accent-purple); font-weight:700;">Backend & Realtime</div>
+          <h4 style="font-size:1.1rem; margin: 4px 0 8px;">Node.js + WebSockets</h4>
+          <p style="font-size:0.82rem; color:var(--text-muted);">High-throughput asynchronous REST APIs + WebSockets / Socket.io for instantaneous GPS coordinate streaming.</p>
         </div>
-        <div class="tech-card">
-          <div class="tech-role">Database</div>
-          <div class="tech-name">PostgreSQL + PostGIS</div>
-          <div class="tech-desc">Relational ACID integrity + specialized geospatial indexing for radius matching.</div>
+        <div class="view-card">
+          <div style="font-size:0.75rem; text-transform:uppercase; color:var(--accent-amber); font-weight:700;">Database Engine</div>
+          <h4 style="font-size:1.1rem; margin: 4px 0 8px;">PostgreSQL + PostGIS</h4>
+          <p style="font-size:0.82rem; color:var(--text-muted);">Spatial indexing for sub-second restaurant radius searches, delivery zone polygon validation, and ACID orders.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Commercial Terms & Ownership -->
-    <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Ownership & Commercial Terms
-        </h2>
-      </div>
-      <div class="terms-box">
-        <ol>
-          <li><strong>Intellectual Property & Code Ownership:</strong> Upon completion and final milestone clearance, the client holds 100% intellectual property rights and full ownership of all source code repositories, databases, and assets.</li>
-          <li><strong>Scope Adherence:</strong> This quotation strictly covers the MVP scope specified in this document. Any substantial functional additions outside this agreement will be scoped and quoted separately under Phase 2.</li>
-          <li><strong>Third-Party Accounts:</strong> Payment gateways, developer store accounts (Google Play / Apple Store), and domain names remain directly registered in the client's corporate name.</li>
-          <li><strong>Post-Deployment Support:</strong> Includes 30 days of complimentary bug fixing for reproducible defects from the date of final staging handover.</li>
-        </ol>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
       <div>
-        <strong>OyeKake Platform Engineering</strong> • Built with Clean Code & Zero Monthly Markups
+        <strong>OyeKake Platform Architecture</strong> • 5-Role Platform • Swiggy-Grade Live Tracking • ₹2,50,000 Flat
       </div>
       <div>
-        Prepared by Vinay Gupta • Software Architect & Engineering Lead
+        Prepared by Vinay Gupta • Engineering Lead & Solution Architect
       </div>
     </footer>
   </div>
