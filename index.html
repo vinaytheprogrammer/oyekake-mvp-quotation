@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OyeKake MVP Quotation & Architecture Plan | ₹2,50,000 Flat</title>
+  <meta name="description" content="Custom Food Delivery Marketplace Software Development Quotation. Complete Swiggy/Zomato style platform built from scratch for ₹2,50,000 with zero monthly agency charges.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0e17;
+      --bg-secondary: #111827;
+      --bg-card: rgba(17, 24, 39, 0.75);
+      --bg-card-hover: rgba(31, 41, 55, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(16, 185, 129, 0.3);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-faint: #6b7280;
+      --accent-green: #10b981;
+      --accent-green-glow: rgba(16, 185, 129, 0.25);
+      --accent-emerald: #059669;
+      --accent-blue: #3b82f6;
+      --accent-purple: #8b5cf6;
+      --accent-amber: #f59e0b;
+      --accent-red: #ef4444;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Background Ambient Gradients */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -20%;
+      left: 10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      bottom: -10%;
+      right: 5%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.09) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Top Nav / Actions Bar */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid var(--border-accent);
+      color: var(--accent-green);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .badge-live::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      box-shadow: 0 0 10px var(--accent-green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .actions-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      border: none;
+      font-family: var(--font-sans);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      box-shadow: 0 4px 15px var(--accent-green-glow);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #059669, #047857);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+    }
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hero Header */
+    .hero {
+      text-align: left;
+      margin-bottom: 48px;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 16px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #ffffff 30%, #9ca3af 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 860px;
+      line-height: 1.7;
+    }
+
+    /* Highlight Banner Cards */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 860px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .card-highlight {
+      border: 1px solid var(--border-accent);
+      background: linear-gradient(160deg, rgba(16, 185, 129, 0.08) 0%, rgba(17, 24, 39, 0.95) 70%);
+      box-shadow: 0 12px 40px -10px var(--accent-green-glow);
+    }
+
+    .price-tag {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .price-currency {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent-green);
+    }
+    .price-value {
+      font-size: 3.6rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+      font-family: var(--font-sans);
+    }
+    .price-period {
+      font-size: 1rem;
+      color: var(--accent-green);
+      font-weight: 600;
+      background: rgba(16, 185, 129, 0.15);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .feature-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .pill {
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pill.green {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: rgba(16, 185, 129, 0.3);
+      color: #34d399;
+    }
+    .pill.blue {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: rgba(59, 130, 246, 0.3);
+      color: #60a5fa;
+    }
+
+    /* Comparison Box */
+    .comparison-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .comp-item {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .comp-item:last-child {
+      border-bottom: none;
+    }
+    .comp-old {
+      color: var(--text-faint);
+      text-decoration: line-through;
+    }
+    .comp-new {
+      color: var(--accent-green);
+      font-weight: 700;
+    }
+
+    /* Section Styling */
+    .section {
+      margin-bottom: 56px;
+    }
+    .section-header {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title svg {
+      color: var(--accent-green);
+    }
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Deliverables Grid */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .module-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      transition: all 0.2s ease;
+    }
+    .module-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .module-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+    }
+    .badge-cust { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+    .badge-rest { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+    .badge-rider { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+    .badge-admin { background: rgba(139, 92, 246, 0.15); color: #a78bfa; }
+    .badge-back { background: rgba(236, 72, 153, 0.15); color: #f472b6; }
+
+    .module-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .module-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .module-features {
+      list-style: none;
+      font-size: 0.85rem;
+    }
+    .module-features li {
+      padding: 5px 0;
+      color: #d1d5db;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .module-features li::before {
+      content: "✓";
+      color: var(--accent-green);
+      font-weight: bold;
+    }
+
+    /* Excluded Charges Matrix */
+    .zero-charges-banner {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.08));
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 28px;
+    }
+    .zero-charges-banner h4 {
+      font-size: 1.15rem;
+      color: var(--accent-green);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .zero-charges-banner p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .charges-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+    }
+    .charges-table th, .charges-table td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .charges-table th {
+      background: rgba(255, 255, 255, 0.03);
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+    .charges-table tr:last-child td {
+      border-bottom: none;
+    }
+    .cost-eliminated {
+      color: var(--accent-green);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Milestones Timeline */
+    .milestone-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .milestone-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      position: relative;
+    }
+    .m-num {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent-green);
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: 0.05em;
+    }
+    .m-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .m-price {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 10px 0;
+    }
+    .m-percent {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .m-items {
+      list-style: none;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+    .m-items li {
+      padding: 4px 0;
+      border-top: 1px dashed rgba(255, 255, 255, 0.05);
+    }
+
+    /* Tech Stack Pills */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .tech-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+      padding: 18px;
+      border-radius: var(--radius-sm);
+    }
+    .tech-role {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .tech-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .tech-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Comparison Table MVP vs Phase 2 */
+    .table-container {
+      overflow-x: auto;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+    }
+    .scope-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .scope-table th, .scope-table td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .scope-table th {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .tag-inc {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      display: inline-block;
+    }
+    .tag-def {
+      background: rgba(107, 114, 128, 0.15);
+      color: #9ca3af;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      display: inline-block;
+    }
+
+    /* Terms & Sign-off */
+    .terms-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .terms-box ol {
+      margin-left: 20px;
+      margin-top: 12px;
+    }
+    .terms-box li {
+      padding: 4px 0;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: var(--text-faint);
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #111827 !important;
+      }
+      body::before, body::after {
+        display: none !important;
+      }
+      .top-bar, .actions-group, .btn {
+        display: none !important;
+      }
+      .container {
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+      .card, .module-card, .milestone-card, .tech-card, .table-container, .terms-box {
+        background: #ffffff !important;
+        border: 1px solid #e5e7eb !important;
+        box-shadow: none !important;
+        color: #111827 !important;
+        page-break-inside: avoid;
+      }
+      .hero-title {
+        background: none !important;
+        -webkit-text-fill-color: #111827 !important;
+        color: #111827 !important;
+      }
+      .hero-subtitle, .module-desc, .tech-desc, .terms-box, .section-subtitle {
+        color: #4b5563 !important;
+      }
+      .price-value {
+        color: #059669 !important;
+      }
+      .charges-table th, .scope-table th {
+        background: #f3f4f6 !important;
+        color: #374151 !important;
+      }
+      .tag-inc {
+        background: #ecfdf5 !important;
+        color: #065f46 !important;
+        border: 1px solid #a7f3d0;
+      }
+      .tag-def {
+        background: #f3f4f6 !important;
+        color: #4b5563 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Top Action Bar -->
+    <header class="top-bar">
+      <div class="badge-live">Official MVP Proposal • Approved Budget Scope</div>
+      <div class="actions-group">
+        <button class="btn btn-outline" onclick="window.print()" id="printBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+          Print / Save PDF
+        </button>
+        <a href="https://github.com/vinaytheprogrammer/oyekake-mvp-quotation" target="_blank" class="btn btn-primary" id="repoBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          View GitHub Repository
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-meta">
+        <span><strong>Client:</strong> OyeKake Team</span>
+        <span>•</span>
+        <span><strong>Type:</strong> Custom From-Scratch Marketplace MVP</span>
+        <span>•</span>
+        <span><strong>Timeline:</strong> 40–45 Working Days</span>
+      </div>
+      <h1 class="hero-title">OyeKake Food Delivery Platform</h1>
+      <p class="hero-subtitle">
+        A custom, multi-vendor food delivery ecosystem engineered from scratch—connecting Customers, Restaurants, Delivery Riders, and Administrators. Architected to eliminate unnecessary third-party overhead and delivered within a fixed, transparent investment.
+      </p>
+    </section>
+
+    <!-- Financial Cards Grid -->
+    <div class="pricing-grid">
+      <!-- Main Highlight Card -->
+      <div class="card card-highlight">
+        <div class="pill green">Fixed Price Contract</div>
+        <div class="price-tag">
+          <span class="price-currency">₹</span>
+          <span class="price-value">2,50,000</span>
+          <span class="price-period">Flat Total Cost</span>
+        </div>
+        <p style="color: #d1d5db; font-size: 0.95rem; margin-bottom: 16px;">
+          All-inclusive custom software engineering fee. Covers full system architecture, APIs, 4 frontend platforms, database setup, and 30 days of warranty.
+        </p>
+        <div class="feature-pills">
+          <span class="pill green">✓ ₹0 Monthly Agency Retainer</span>
+          <span class="pill green">✓ 100% Source Code Ownership</span>
+          <span class="pill blue">✓ Cross-Platform Android + iOS Ready</span>
+          <span class="pill blue">✓ Indian Payment Gateway Integrated</span>
+        </div>
+      </div>
+
+      <!-- Comparison Card -->
+      <div class="card comparison-card">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent-green)"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          Quotation Optimization
+        </h3>
+        <div class="comp-item">
+          <span>Agency Development Fee</span>
+          <div>
+            <span class="comp-old">₹2,95,000 (inc GST)</span> &nbsp;
+            <span class="comp-new">₹2,50,000 Flat</span>
+          </div>
+        </div>
+        <div class="comp-item">
+          <span>Monthly Retainer / Charges</span>
+          <div>
+            <span class="comp-old">₹5,000–₹25,000/mo</span> &nbsp;
+            <span class="comp-new">₹0 / Month</span>
+          </div>
+        </div>
+        <div class="comp-item">
+          <span>Delivery Timeline</span>
+          <div>
+            <span class="comp-old">60 Working Days</span> &nbsp;
+            <span class="comp-new">40–45 Days</span>
+          </div>
+        </div>
+        <div class="comp-item">
+          <span>Code Ownership</span>
+          <div>
+            <span class="comp-new">100% Complete IP Handover</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exclusion of Monthly Charges Section -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Zero Monthly Agency Fees & Low-Cost Infrastructure
+        </h2>
+        <p class="section-subtitle">
+          How this quotation eliminates ongoing vendor retainers and leverages direct-billing free tiers to minimize operating burn.
+        </p>
+      </div>
+
+      <div class="zero-charges-banner">
+        <h4>Client Direct-Billing Policy (Zero Agency Markup)</h4>
+        <p>
+          Unlike standard agency quotations that mark up monthly servers or bill monthly retainers, <strong>all infrastructure accounts are registered directly in your name</strong>. You pay zero developer retainers, and the MVP architecture is specifically optimized to operate on high-performance low-cost / free-tier services.
+        </p>
+      </div>
+
+      <table class="charges-table">
+        <thead>
+          <tr>
+            <th>Expense Category</th>
+            <th>Original Agency Estimate</th>
+            <th>Our Optimized MVP Strategy</th>
+            <th>Client Direct Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Cloud Hosting & DB</strong></td>
+            <td>₹3,000 – ₹10,000 / month</td>
+            <td>High-performance single VPS (DigitalOcean / Hetzner) or Supabase Free Tier</td>
+            <td><span class="cost-eliminated">~₹400 – ₹800 / month</span> (Direct to host)</td>
+          </tr>
+          <tr>
+            <td><strong>Maps & Geolocation</strong></td>
+            <td>₹0 – ₹10,000+ / month</td>
+            <td>Google Maps $200 free monthly allowance (~28,000 loads) or OpenStreetMap tiles</td>
+            <td><span class="cost-eliminated">₹0 / month</span> (Within free quota)</td>
+          </tr>
+          <tr>
+            <td><strong>Push Notifications</strong></td>
+            <td>Extra fee</td>
+            <td>Firebase Cloud Messaging (FCM) unlimited push delivery</td>
+            <td><span class="cost-eliminated">₹0 (Free Forever)</span></td>
+          </tr>
+          <tr>
+            <td><strong>SMS / Phone OTP</strong></td>
+            <td>₹0.25 – ₹1.00 / SMS + DLT</td>
+            <td>Firebase Phone Authentication (10,000 free SMS/mo) or WhatsApp OTP</td>
+            <td><span class="cost-eliminated">₹0 – ₹300 / month</span></td>
+          </tr>
+          <tr>
+            <td><strong>SSL & CDN Security</strong></td>
+            <td>₹0 – ₹6,000 / year</td>
+            <td>Cloudflare Free Tier + Auto-renewing Let's Encrypt SSL</td>
+            <td><span class="cost-eliminated">₹0 (Free)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Agency Maintenance Retainer</strong></td>
+            <td>Optional monthly quote</td>
+            <td>30 Days bug warranty included; zero monthly recurring developer retainers</td>
+            <td><span class="cost-eliminated">₹0 / month</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Platform Modules Breakdown -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          Complete 5-Module Deliverables Scope
+        </h2>
+        <p class="section-subtitle">A cohesive ecosystem comprising 4 purpose-built frontends and 1 high-speed backend engine.</p>
+      </div>
+
+      <div class="modules-grid">
+        <!-- Customer Mobile App & Web -->
+        <div class="module-card">
+          <span class="module-badge badge-cust">Customer Experience</span>
+          <h3 class="module-title">Customer App & Responsive Web</h3>
+          <p class="module-desc">Native-feel cross-platform ordering application (Flutter Android/iOS) and desktop/mobile web portal.</p>
+          <ul class="module-features">
+            <li>OTP login & customer profile with saved addresses</li>
+            <li>GPS-based restaurant discovery & radius filtering</li>
+            <li>Restaurant menu categories, veg/non-veg tags, variants & add-ons</li>
+            <li>Live shopping cart, cooking instructions & coupon codes</li>
+            <li>Online payment (Razorpay/Cashfree/UPI) & Cash on Delivery</li>
+            <li>Real-time order state tracker & order history reorder</li>
+          </ul>
+        </div>
+
+        <!-- Restaurant Partner Portal -->
+        <div class="module-card">
+          <span class="module-badge badge-rest">Merchant System</span>
+          <h3 class="module-title">Restaurant Management Portal</h3>
+          <p class="module-desc">Web & tablet-friendly dashboard designed for fast kitchen order processing and catalog control.</p>
+          <ul class="module-features">
+            <li>Loud sound notification alerts for new incoming orders</li>
+            <li>1-Tap order Accept / Reject with food preparation timer</li>
+            <li>Live menu manager (edit prices, item status, out-of-stock toggle)</li>
+            <li>Add-on and customization pricing management</li>
+            <li>Store operating hours & online/offline store switch</li>
+            <li>Daily sales and completed order summaries</li>
+          </ul>
+        </div>
+
+        <!-- Delivery Partner Mobile App -->
+        <div class="module-card">
+          <span class="module-badge badge-rider">Logistics & Fleet</span>
+          <h3 class="module-title">Delivery Partner Android App</h3>
+          <p class="module-desc">Streamlined mobile application for riders to receive assignments and navigate pickups/deliveries.</p>
+          <ul class="module-features">
+            <li>Rider online/offline availability switch</li>
+            <li>Real-time delivery assignment broadcast notifications</li>
+            <li>Order pickup from restaurant & customer delivery directions</li>
+            <li>1-Tap navigation launcher (Google Maps route)</li>
+            <li>Customer contact via masked call/direct link</li>
+            <li>OTP verification to confirm delivery completion</li>
+          </ul>
+        </div>
+
+        <!-- Super Admin Panel -->
+        <div class="module-card">
+          <span class="module-badge badge-admin">Master Control</span>
+          <h3 class="module-title">Central Admin Dashboard</h3>
+          <p class="module-desc">Complete administrative oversight over all transactions, restaurants, riders, and platform commissions.</p>
+          <ul class="module-features">
+            <li>Real-time live monitoring of all active platform orders</li>
+            <li>Commission % rule configuration per restaurant</li>
+            <li>Delivery fee calculation settings (distance/flat slab)</li>
+            <li>Restaurant KYC document review & activation controls</li>
+            <li>Rider onboarding and manual dispatch override</li>
+            <li>Financial payout reports & daily/weekly sales analytics</li>
+          </ul>
+        </div>
+
+        <!-- Backend & Infrastructure -->
+        <div class="module-card">
+          <span class="module-badge badge-back">Core Engine</span>
+          <h3 class="module-title">Backend API & Database</h3>
+          <p class="module-desc">Secure, scalable server architecture built with clean micro-routing and optimized geospatial indexing.</p>
+          <ul class="module-features">
+            <li>Node.js / Express or NestJS REST API architecture</li>
+            <li>PostgreSQL + PostGIS for lightning-fast radius geo-queries</li>
+            <li>WebSockets for sub-second status changes and live kitchen alerts</li>
+            <li>Role-Based Access Control (RBAC) & JWT authentication</li>
+            <li>Webhooks for Razorpay/Cashfree payment reconciliation</li>
+            <li>Containerized Docker deployment configuration</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scope Matrix Table -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          Scope Boundaries: MVP vs Phase 2 Expansion
+        </h2>
+        <p class="section-subtitle">Strict feature segregation to guarantee high software quality and launch within ₹2,50,000.</p>
+      </div>
+
+      <div class="table-container">
+        <table class="scope-table">
+          <thead>
+            <tr>
+              <th>Feature / Component</th>
+              <th>Phase 1 (MVP Scope — Included)</th>
+              <th>Phase 2 (Future Post-Launch Scope)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Order Workflow</strong></td>
+              <td><span class="tag-inc">Included</span> Full cycle: Placement ➔ Prep ➔ Rider Pickup ➔ OTP Delivery</td>
+              <td><span class="tag-def">Phase 2</span> Automated multi-order batching algorithm</td>
+            </tr>
+            <tr>
+              <td><strong>Customer Apps</strong></td>
+              <td><span class="tag-inc">Included</span> Flutter Android & iOS Build + Responsive Web App</td>
+              <td><span class="tag-def">Phase 2</span> Apple Watch / Siri Shortcuts integration</td>
+            </tr>
+            <tr>
+              <td><strong>Payment Gateway</strong></td>
+              <td><span class="tag-inc">Included</span> 1 Indian Gateway (Razorpay/Cashfree) + Cash on Delivery</td>
+              <td><span class="tag-def">Phase 2</span> Automated split payouts / escrow settlement</td>
+            </tr>
+            <tr>
+              <td><strong>Rider Management</strong></td>
+              <td><span class="tag-inc">Included</span> Dedicated Rider App with OTP confirmation & GPS route launch</td>
+              <td><span class="tag-def">Phase 2</span> Multi-leg AI route optimization</td>
+            </tr>
+            <tr>
+              <td><strong>Customer Support</strong></td>
+              <td><span class="tag-inc">Included</span> 1-Click WhatsApp / Phone Call direct support button</td>
+              <td><span class="tag-def">Phase 2</span> In-app live chat ticketing system</td>
+            </tr>
+            <tr>
+              <td><strong>Marketing & Promos</strong></td>
+              <td><span class="tag-inc">Included</span> Percentage & flat coupons, minimum order restrictions</td>
+              <td><span class="tag-def">Phase 2</span> Gamified referral tree & loyalty scratch cards</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Milestone Roadmap -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Milestone Delivery & Payment Plan
+        </h2>
+        <p class="section-subtitle">Risk-free, verification-backed payment milestones aligned with concrete code deliverables.</p>
+      </div>
+
+      <div class="milestone-grid">
+        <div class="milestone-card">
+          <div class="m-num">MILESTONE 01</div>
+          <h3 class="m-title">UI/UX & Architecture</h3>
+          <div class="m-price">₹62,500 <span class="m-percent">(25%)</span></div>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Duration: 8–10 Working Days</p>
+          <ul class="m-items">
+            <li>Figma UI/UX screen design approval</li>
+            <li>PostgreSQL schema & DB models</li>
+            <li>Git repository & dev environment setup</li>
+          </ul>
+        </div>
+
+        <div class="milestone-card">
+          <div class="m-num">MILESTONE 02</div>
+          <h3 class="m-title">Backend & Admin Portal</h3>
+          <div class="m-price">₹62,500 <span class="m-percent">(25%)</span></div>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Duration: 12–14 Working Days</p>
+          <ul class="m-items">
+            <li>Core REST APIs & Auth endpoints</li>
+            <li>Restaurant Web Portal (Live sound orders)</li>
+            <li>Super Admin Control Dashboard</li>
+          </ul>
+        </div>
+
+        <div class="milestone-card">
+          <div class="m-num">MILESTONE 03</div>
+          <h3 class="m-title">Customer & Rider Apps</h3>
+          <div class="m-price">₹62,500 <span class="m-percent">(25%)</span></div>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Duration: 12–14 Working Days</p>
+          <ul class="m-items">
+            <li>Customer Flutter Mobile App & Web</li>
+            <li>Delivery Partner Android App</li>
+            <li>Razorpay PG & live order status integration</li>
+          </ul>
+        </div>
+
+        <div class="milestone-card">
+          <div class="m-num">MILESTONE 04</div>
+          <h3 class="m-title">QA, Launch & Handover</h3>
+          <div class="m-price">₹62,500 <span class="m-percent">(25%)</span></div>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Duration: 6–8 Working Days</p>
+          <ul class="m-items">
+            <li>End-to-end integration & stress testing</li>
+            <li>Production server deployment & SSL</li>
+            <li>100% Source code transfer & 30-day warranty</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Enterprise Technology Stack
+        </h2>
+        <p class="section-subtitle">Modern, battle-tested technologies with high ecosystem support and zero vendor lock-in.</p>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-role">Mobile Framework</div>
+          <div class="tech-name">Flutter (Dart)</div>
+          <div class="tech-desc">Native performance on Android & iOS with a single maintainable codebase.</div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-role">Web Applications</div>
+          <div class="tech-name">React / Next.js</div>
+          <div class="tech-desc">Ultra-fast, responsive web apps for Customer, Restaurant, and Admin portals.</div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-role">Backend Server</div>
+          <div class="tech-name">Node.js (Nest/Express)</div>
+          <div class="tech-desc">High-concurrency asynchronous event-driven architecture for rapid order streaming.</div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-role">Database</div>
+          <div class="tech-name">PostgreSQL + PostGIS</div>
+          <div class="tech-desc">Relational ACID integrity + specialized geospatial indexing for radius matching.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Commercial Terms & Ownership -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Ownership & Commercial Terms
+        </h2>
+      </div>
+      <div class="terms-box">
+        <ol>
+          <li><strong>Intellectual Property & Code Ownership:</strong> Upon completion and final milestone clearance, the client holds 100% intellectual property rights and full ownership of all source code repositories, databases, and assets.</li>
+          <li><strong>Scope Adherence:</strong> This quotation strictly covers the MVP scope specified in this document. Any substantial functional additions outside this agreement will be scoped and quoted separately under Phase 2.</li>
+          <li><strong>Third-Party Accounts:</strong> Payment gateways, developer store accounts (Google Play / Apple Store), and domain names remain directly registered in the client's corporate name.</li>
+          <li><strong>Post-Deployment Support:</strong> Includes 30 days of complimentary bug fixing for reproducible defects from the date of final staging handover.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div>
+        <strong>OyeKake Platform Engineering</strong> • Built with Clean Code & Zero Monthly Markups
+      </div>
+      <div>
+        Prepared by Vinay Gupta • Software Architect & Engineering Lead
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>
