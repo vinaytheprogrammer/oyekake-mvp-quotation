@@ -45,6 +45,14 @@ Official software engineering proposal and Minimum Viable Product (MVP) quotatio
 
 ---
 
+## Automated Billing, Taxation & Refund Management System
+
+1. **Smart Cart & Tax Engine:** Automated server-side calculation of item base prices + size variants + add-ons, transparent restaurant GST/tax breakdown, distance-based dynamic delivery fee matrix, platform convenience fees, and coupon code deductions with digital receipt generation.
+2. **Cancellation & Payment Gateway Refund Engine:** Configurable cancellation policy (free before restaurant acceptance), 1-click admin refund initiation, direct integration with Razorpay/Cashfree Refund APIs for automatic return of funds to customer UPI/Card/Netbanking accounts, and live customer refund status tracking (*Initiated ➔ Processing ➔ Credited*).
+3. **Vendor Commission & Settlement Ledger:** Automated deduction of platform take-rate % per order, complete ledger bookkeeping (`Net Payout = Gross Sales - Platform Commission - Refunds`), and exportable settlement sheets (CSV/PDF) for executing bank transfers.
+
+---
+
 ## Post-Delivery Warranty, Maintenance & SSOT Terms
 
 1. **2 Months Included Assistance:** 60 days of bug fixing, configuration tuning, and minor requirement-related adjustments included in the base ₹2,50,000 fee.
