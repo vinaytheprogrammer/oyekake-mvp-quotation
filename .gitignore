@@ -1,0 +1,13 @@
+# Antigravity & Agent workspace skills
+.agents/
+skills-lock.json
+
+# Nested POC implementation codebase (managed in its own repository)
+oyekake-poc/
+
+# Environment & Logs
+.env
+.env.*
+*.log
+node_modules/
+.DS_Store

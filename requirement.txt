@@ -1,0 +1,385 @@
+1 | P a g e
+WEB MIRACLE TECHNOLOGY
+SOFTWARE DEVELOPMENT QUOTATION
+Custom Food Delivery Marketplace Software
+Swiggy / Zomato-Like Online Food Ordering & Delivery Platform
+Service Provider: Web Miracle Technology
+Registered Location: Kanpur, Uttar Pradesh, India
+GSTIN: 09DRMPS1914R1ZT
+Website: https://wmtindia.in/
+Email: exports@webmiracle.co.in
+Contact: +91 7897465555
+Project Type: Custom Marketplace Software Development
+Estimated Development Timeline: 45–60 Working Days
+Total Development Cost: ₹2,50,000 + 18% GST
+GST Amount: ₹ 45,000
+Total Project Cost: ₹2,95,000
+All third-party services, subscriptions, infrastructure, API usage, licenses, and transaction charges will be payable
+separately by the client.
+1. Project Overview
+Web Miracle Technology proposes to develop a custom multi-vendor food delivery marketplace inspired by
+Swiggy and Zomato. The platform will connect customers, restaurants, delivery partners, and administrators through
+an integrated online ordering and delivery management system.
+The software will provide a centralized solution for restaurant onboarding, food menu management, order placement,
+online payments, delivery assignment, order tracking, commission management, offers, customer support, and
+business reporting.
+The solution will include a customer-facing website, customer mobile application, restaurant management panel,
+delivery partner mobile application, and a centralized admin dashboard, subject to the agreed platform scope.
+2. Customer Application and Website
+The customer platform will allow users to discover restaurants, browse menus, place orders, make payments, and
+track
+deliveries.
+Features include: Web Miracle Technology
+• Customer registration, login, and secure authentication.
+• Mobile number verification using OTP through a third-party SMS provider.
+2 | P a g e
+WEB MIRACLE TECHNOLOGY
+• Customer profile and account management.
+• GPS-based location detection and delivery address selection.
+• Multiple saved delivery addresses.
+• Restaurant discovery based on location and service availability.
+• Search restaurants by name, cuisine, and food category.
+• Filters for ratings, food preferences, availability, and price where configured.
+• Restaurant profiles with menus, images, descriptions, ratings, and opening hours.
+• Food categories, item variants, add-ons, and customization options.
+• Veg and non-veg indicators.
+• Food item availability and out-of-stock information.
+• Shopping cart and quantity management.
+• Special cooking instructions and order notes.
+• Automatic calculation of item totals, applicable taxes, delivery fees, and discounts.
+• Coupon codes and promotional offers.
+• Checkout and order confirmation.
+• Online payment and cash-on-delivery options.
+• Order status notifications.
+• Live delivery tracking, subject to mapping and location service availability.
+• Order history and detailed order summaries.
+• Reorder functionality.
+• Cancellation requests according to configured policies.
+• Refund status information.
+• Customer ratings and restaurant reviews.
+• Customer support and complaint submission.
+• Push notifications for order updates and promotional announcements.
+3. Restaurant Partner Management Panel
+Restaurants will be able to manage their profiles, menus, incoming orders, operating hours, and sales information.
+Features include:
+• Restaurant registration and onboarding.
+• Business details and document submission.
+• Admin approval before activation.
+• Restaurant profile, logo, images, and descriptions
+• Restaurant operating & hours and holiday settings.
+• Online/offline availability control.
+• Menu categories and food item management.
+• Add, edit, and deactivate food products.
+• Food descriptions, images, prices, and variants.
+• Add-on management and customization options.
+• Item availability and stock status.
+• Incoming order alerts.
+• Accept or reject orders according to configured rules.
+• Food preparation time settings
+• Order preparation and ready-for-pickup updates.
+• Order history and order detail views.
+• Configurable restaurant offers and discounts, subject to permissions.
+3 | P a g e
+WEB MIRACLE TECHNOLOGY
+• Sales summaries and order reports.
+• Commission deductions and settlement statements.
+• Customer ratings and review monitoring.
+• Restaurant profile and notification settings.
+4. Delivery Partner Mobile Application
+The delivery application will help delivery partners receive assignments, collect food orders, and complete deliveries.
+Features include:
+• Delivery partner registration and login.
+• Profile and identity document submission.
+• Admin verification and approval.
+• Online/offline availability toggle.
+• Order assignment notifications.
+• Accept or reject delivery assignments according to configured rules.
+• Restaurant pickup address and customer delivery address.
+• Map-based navigation integration.
+• Pickup confirmation and order collection status.
+• Order delivery status updates.
+• Customer contact functionality, subject to provider support.
+• OTP-based delivery confirmation.
+• Delivery completion records.
+• Delivery history and completed order summaries.
+• Earnings and delivery payment summaries.
+• Incentive tracking where configured.
+• Push notifications for new assignments and order updates.
+• Delivery partner profile and account settings.
+Advanced route optimization, automated fleet dispatch, and sophisticated delivery batching are not included unless
+separately approved.
+5. Admin Dashboard and Marketplace Management
+The admin dashboard will provide centralized control over customers, restaurants, delivery partners, orders,
+commissions, and platform settings.
+Features include:
+• Secure admin login and role-based access.
+• Dashboard showing orders, sales, customers, and restaurant activity.
+• Customer account management.
+• Restaurant registration review and approval.
+• Restaurant activation, suspension, and account controls.
+• Delivery partner verification and management.
+• Food categories and cuisine management.
+• Menu and listing oversight.
+• Centralized order monitoring.
+4 | P a g e
+WEB MIRACLE TECHNOLOGY
+• Order status monitoring and administrative intervention.
+• Manual delivery assignment and reassignment.
+• Commission percentage configuration.
+• Platform service fee settings.
+• Delivery charge configuration.
+• Minimum order value settings.
+• Delivery zones and service area management.
+• Coupon and promotional campaign management.
+• Refund and cancellation record management.
+• Customer complaints and support management.
+• Ratings and review moderation
+• Payment transaction records.
+• Restaurant settlement and payout tracking records.
+• Tax and invoice configuration.
+• Push notification and announcement management.
+• Daily, weekly, and monthly business reports.
+• Restaurant-wise sales and performance reports
+• Delivery partner performance reports.
+• Customer activity and registration reports.
+• Basic administrative activity logs.
+Actual fund transfers to restaurants and delivery partners will depend on the payment provider and settlement
+arrangement. Automated split payments or complex payout automation are subject to separate scope approval.
+6. Order Processing and Delivery Workflow
+The platform will support the following end-to-end order lifecycle:
+1. The customer selects a delivery address and browses available restaurants.
+2. The customer selects food items and proceeds to checkout.
+3. The system calculates the order amount, applicable charges, and discounts.
+4. The customer places the order and completes payment or selects cash on delivery.
+5. The restaurant receives the order and accepts or rejects it.
+6. The restaurant updates the preparation status.
+7. A delivery partner is assigned manually by the admin or through the agreed assignment workflow.
+8. The delivery partner collects the order and updates the pickup status.
+9. The customer receives order status updates and available tracking information.
+10.The delivery partner completes delivery using the configured confirmation method.
+11.The system records the completed order, payment status, commissions, and relevant reports.
+Cancellation, refund, restaurant commission, and delivery fee rules will be configurable according to the approved
+business requirements.
+7. Payment Gateway and Financial Management
+The software will support integration with one compatible third-party payment gateway.
+5 | P a g e
+WEB MIRACLE TECHNOLOGY
+Included functionality:
+• Online payment initiation.
+• Payment success and failure handling.
+• Payment status verification through supported gateway APIs.
+• Cash-on-delivery order handling.
+• Transaction reference and payment history.
+• Restaurant commission calculation.
+• Delivery fee and platform service fee calculation.
+• Coupon and discount calculation.
+• Order-wise financial records.
+• Refund status tracking.
+• Restaurant settlement reports.
+• Basic transaction reconciliation reports.
+Important: Payment gateway merchant fees, transaction charges, settlement fees, refund charges, and other
+provider
+fees are extra. Automated split settlements, escrow-like workflows, and additional payment gateway integrations are
+not included in the base quotation.
+8. Promotions, Offers, and Customer Retention
+• Percentage-based discounts.
+• Fixed-amount discount coupons.
+• Minimum order value restrictions.
+• Coupon validity dates and usage limits.
+• Restaurant-specific offers.
+• First-order promotions.
+• Promotional banners and featured restaurants.
+• Push notification campaigns.
+• Customer reviews and ratings.
+• Basic referral or reward functionality only if included in the final approved scope.
+9. Reports and Business Analytics
+The admin panel will provide reports to support routine business operations.
+• Total orders and order value.
+• Completed, pending and cancelled orders.
+• Daily, weekly, and monthly sales summaries.
+• Restaurant-wise sales reports.
+• Commission and platform fee summaries.
+• Delivery partner performance reports.
+• Payment and refund records.
+• Coupon usage summaries.
+• Customer registration and activity reports.
+• Order status and operational reports.
+Advanced business intelligence, predictive analytics, AI recommendations, and custom data warehouse integrations
+6 | P a g e
+WEB MIRACLE TECHNOLOGY
+are excluded from the base scope.
+10. Technical Architecture and Security
+The final technology stack will be agreed during requirements and architecture planning.
+Proposed technical components:
+• Frontend: Responsive web application for customer ordering and restaurant management.
+• Mobile applications: Cross-platform framework for the agreed Android/iOS scope.
+• Backend: Server-side application exposing REST APIs.
+• Database: Relational database for customers, restaurants, products, orders, and transactions.
+• Authentication: Secure login, access control, and role-based permissions.
+• Maps: Google Maps or another supported mapping service.
+• Notifications: Firebase Cloud Messaging or an equivalent service.
+• Payments: One supported payment gateway.
+• Deployment: Client-approved cloud hosting or server infrastructure.
+• Standard security and engineering practices:
+• Server-side input validation.
+• Role-based access restrictions.
+• Secure password handling.
+• Authentication and authorization controls.
+• Protected API endpoints.
+• Payment status verification using supported provider mechanisms.
+• Error logging and basic application monitoring.
+• Database backup configuration, subject to the selected infrastructure.
+• Basic deployment and production configuration.
+Infrastructure sizing, high availability, disaster recovery, penetration testing, and formal security certifications are not
+included unless separately specified.
+11. Estimated Third-Party Charges and Operating Expenses
+The following are indicative planning estimates, not confirmed vendor quotations. Actual charges depend on usage,
+provider pricing, traffic, location, taxes, and the selected service plan.
+A. Cloud hosting and server infrastructure
+Estimated cost: ₹3,000–₹10,000 per month for an initial deployment, depending on server specifications, database
+requirements, storage, and traffic.
+Higher traffic, separate production and staging environments, managed databases, backups, load balancing, and
+redundancy may increase the cost.
+B. Domain and SSL
+• Domain registration/renewal: approximately ₹800–₹1,800 per year.
+• SSL certificate: approximately ₹0–₹6,000+ per year, depending on the selected certificate and provider. Free
+certificates may be available.
+7 | P a g e
+WEB MIRACLE TECHNOLOGY
+C. SMS and OTP verification
+Estimated planning allowance: ₹0.25–₹1.00+ per SMS, depending on the provider, destination, message type, and
+applicable taxes or regulatory charges.
+Indian OTP messaging may require approved sender IDs, templates, and applicable DLT compliance.
+D. Maps and location services
+Estimated planning allowance: ₹0–₹10,000+ per month for an initial low-to-moderate usage scenario, depending on
+the provider's free allowances, map loads, geocoding, routes, and usage volume.
+Actual Google Maps or equivalent API billing must be checked against the selected provider's current pricing.
+E. Payment gateway charges
+Indicative planning estimate: approximately 1.5%–3% per successful transaction, potentially plus GST or other
+applicable fees. Actual rates depend on the gateway, payment method, merchant agreement, refunds, and settlement
+terms.
+F. Push notifications
+Firebase Cloud Messaging basic push notification delivery is generally available without a separate per-message
+delivery fee. Other notification, analytics, or engagement services may incur charges.
+G. Email services
+Estimated allowance: ₹0–₹3,000+ per month, depending on sending volume, deliverability requirements, and the
+chosen email provider.
+H. App store developer accounts
+• Google Play Console: commonly a one-time registration fee of US$25.
+• Apple Developer Program: commonly US$100 per year, subject to country, taxes, and current Apple terms.
+ Account eligibility, fees, and publication approval are controlled by the respective platforms.
+I. Monitoring, backups, and other services
+Estimated allowance: ₹0–₹5,000+ per month, depending on log retention, monitoring, storage, backup frequency, and
+selected tools.
+Indicative operating budget: A basic deployment may require approximately ₹5,000–₹25,000+ per month, excluding
+payment gateway transaction fees, marketing, substantial SMS usage, and high-traffic infrastructure. This is a
+planning
+estimate only; actual costs must be validated after selecting providers and forecasting usage. third-party costs are
+paid directly by the client to the respective providers unless otherwise agreed in writing. The
+client is responsible for any applicable taxes, renewals, usage charges, and price changes.
+8 | P a g e
+WEB MIRACLE TECHNOLOGY
+12. Development Cost and GST
+The total custom software development fee is ₹2,50,000/-
+Applicable GST at 18%: ₹45,000.
+Total quotation value including GST: ₹2,95,000/-
+The above price covers the agreed development scope described in this quotation. Third-party subscriptions,
+infrastructure, API usage, payment processing charges, licenses, app store fees, and other external costs are
+excluded.
+13. Development Roadmap
+The estimated project duration is 45–60 working days, beginning after advance payment, scope approval, and receipt
+of the necessary client inputs.
+Phase 1: Requirements and UI/UX Design — 7–10 Working Days
+• Confirm business workflows and user roles.
+• Finalize feature requirements.
+• Prepare user journeys and wireframes.
+• Design core application screens.
+• Obtain client approval.
+Phase 2: Backend and Core APIs — 10–12 Working Days
+• Database architecture.
+• Authentication and user roles.
+• Restaurant, menu, and customer APIs.
+• Order and payment workflow foundations.
+• Admin dashboard foundations.
+Phase 3: Customer, Restaurant, and Delivery Modules — 12–15 Working Days
+• Customer ordering experience.
+• Restaurant management panel.
+• Delivery partner workflows.
+• Order status management.
+• Notifications and location integration.
+Phase 4: Admin, Payments, and Business Rules — 8–10 Working Days
+• Admin controls and reports.
+• Commission and delivery fee rules.
+• Payment gateway integration.
+• Coupons and promotional settings.
+• Financial record management.
+Phase 5: Quality Assurance and Deployment — 8–13 Working Days
+9 | P a g e
+WEB MIRACLE TECHNOLOGY
+• Functional and integration testing.
+• Bug fixing.
+• User acceptance testing.
+• Production configuration.
+• Deployment and agreed handover.
+Some phases may overlap. Third-party approvals, app store review, delayed content, and client feedback may extend
+the delivery schedule.
+14. Payment Terms
+Payment Milestone 1 — 40% Advance: applicable GST, payable upon project confirmation.
+Payment Milestone 2 — 30% + applicable GST, payable after completion of core development and major modules.
+Payment Milestone 3 — 20% + applicable GST, payable after the staging demonstration and testing
+Payment Milestone 4 — 10% + applicable GST, payable before final production deployment and source-code
+handover.
+15. Deliverables and Handover
+The agreed deliverables will include:
+• Customer-facing website.
+• Customer mobile application build(s) for the agreed platforms.
+• Restaurant management panel.
+• Delivery partner mobile application build(s) for the agreed platforms.
+• Centralized admin dashboard.
+• Backend application and APIs.
+• Database schema and configuration.
+• One payment gateway integration.
+• Agreed maps and notification integrations.
+• Testing and deployment assistance.
+• Initial administrator account setup.
+• Project source code and agreed technical handover after full payment.
+Final mobile operating systems, build targets, source-code handover format, and hosting arrangement will be
+confirmed in the approved statement of work.
+16. Support and Maintenance
+The quotation includes 30 days of post-deployment bug-fix support for reproducible defects within the approved
+scope.
+The included support does not cover:
+• New features or enhancements.
+• Changes in third-party APIs or provider policies.
+• Hosting outages or infrastructure issues outside the development team's control.
+10 | P a g e
+WEB MIRACLE TECHNOLOGY
+• Problems caused by unauthorized code changes.
+• Ongoing server management or 24/7 operational support.
+• Third-party service subscriptions and usage fees.
+An ongoing maintenance agreement can be quoted separately based on traffic, uptime requirements, support hours,
+and the required response times.
+17. Commercial Terms and Conditions
+1. The development fee applies only to the agreed features and deliverables.
+2. Major scope changes after approval may require additional charges and revised timelines.
+3. Client approval of UI/UX and core workflows is required before implementation proceeds.
+4. The client will provide branding assets, restaurant information, legal policies, payment gateway credentials, and
+other required materials.
+5. Third-party services are subject to their own pricing, availability, terms, and limitations.
+6. Restaurant payouts and delivery partner payouts depend on the selected payment and settlement
+arrangements.
+7. Production deployment depends on the availability of client-owned hosting, domain, and required third-party
+accounts.
+8. App store submission is subject to platform policies and approval.
+9. All outstanding development fees must be paid before final source-code handover.
+10.Project ownership and licensing will be governed by the final written agreement and third-party license terms.
+18. Project Confirmation
+To initiate development, the client must approve the quotation and confirm the required mobile platforms, application
+branding, delivery workflow, restaurant commission model, payment gateway, and deployment requirements.
+Development will commence after the scope is finalized and the advance payment is received.
+Prepared By:
+Web Miracle Technology
+Kanpur, Uttar Pradesh, India
+GSTIN: 09DRMPS1914R1ZT
+Email: exports@webmiracle.co.in
+Contact: +91 7897465555
